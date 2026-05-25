@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
 
 :root {
-  --bg: #0b0a09;
-  --text: #e8e0d4;
-  --dim: #8a7e6f;
-  --accent: #c49a5c;
-  --accent-dim: rgba(196, 154, 92, 0.15);
-  --rule: rgba(255, 225, 180, 0.08);
+  /* Aligned with the AetherFocus app palette (FantasyTheme.Codex).
+     Purple = iconic accent (matches app icon corona).
+     Brass kept as tertiary warm highlight so the warmth from the old palette
+     doesn't fully disappear. */
+  --bg: #060818;              /* Codex.inkDeep */
+  --bg-soft: #0A0E27;         /* Codex.ink */
+  --text: #F5E6D3;            /* Codex.ivory */
+  --dim: #a89c8a;             /* desaturated ivory for body copy */
+  --accent: #BF85FF;          /* FantasyTheme.accentAlt — the icon purple */
+  --accent-strong: #9D5CE8;   /* hover state */
+  --accent-dim: rgba(191, 133, 255, 0.15);
+  --cyan: #5CD1FA;            /* FantasyTheme.accent — secondary highlight */
+  --brass: #C9A961;           /* Codex.brass — tertiary warm accent */
+  --aubergine: #4C2659;       /* Codex.aubergine — deep purple */
+  --rule: rgba(191, 133, 255, 0.10);
   --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
   --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
@@ -32,7 +41,7 @@ body::after {
   z-index: 999;
   pointer-events: none;
   opacity: 0.04;
-  background: repeating-conic-gradient(#e8e0d4 0% 25%, transparent 0% 50%) 0 0 / 3px 3px;
+  background: repeating-conic-gradient(#F5E6D3 0% 25%, transparent 0% 50%) 0 0 / 3px 3px;
   mix-blend-mode: overlay;
 }
 
@@ -55,25 +64,27 @@ a { color: inherit; }
   pointer-events: none;
   mix-blend-mode: screen;
   filter: blur(100px);
-  opacity: 0.12;
+  opacity: 0.16;
   animation: float 22s ease-in-out infinite;
 }
 .orb-one {
-  width: 500px; height: 500px;
-  top: -120px; left: -100px;
-  background: radial-gradient(circle, #c49a5c 0%, transparent 70%);
+  width: 520px; height: 520px;
+  top: -140px; left: -120px;
+  background: radial-gradient(circle, #BF85FF 0%, transparent 70%);
 }
 .orb-two {
-  width: 400px; height: 400px;
-  top: 50%; right: -160px;
-  background: radial-gradient(circle, #5c7a5e 0%, transparent 70%);
+  width: 420px; height: 420px;
+  top: 45%; right: -180px;
+  background: radial-gradient(circle, #5CD1FA 0%, transparent 70%);
   animation-delay: -8s;
+  opacity: 0.10;
 }
 .orb-three {
-  width: 350px; height: 350px;
-  bottom: -80px; left: 30%;
-  background: radial-gradient(circle, #8b5e3c 0%, transparent 70%);
+  width: 380px; height: 380px;
+  bottom: -100px; left: 28%;
+  background: radial-gradient(circle, #4C2659 0%, transparent 70%);
   animation-delay: -15s;
+  opacity: 0.22;
 }
 
 @keyframes float {
@@ -160,18 +171,20 @@ h1 {
 }
 .button.primary {
   background: var(--accent);
-  color: #0b0a09;
+  color: var(--bg);
+  box-shadow: 0 0 0 1px rgba(191, 133, 255, 0.0), 0 10px 30px -10px rgba(191, 133, 255, 0.55);
 }
 .button.primary:hover {
-  background: #d4aa6c;
+  background: var(--accent-strong);
   transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(191, 133, 255, 0.35), 0 16px 40px -10px rgba(191, 133, 255, 0.75);
 }
 .button.secondary {
-  border: 1px solid rgba(255, 225, 180, 0.12);
+  border: 1px solid rgba(191, 133, 255, 0.18);
   color: var(--dim);
 }
 .button.secondary:hover {
-  border-color: rgba(255, 225, 180, 0.3);
+  border-color: rgba(191, 133, 255, 0.40);
   color: var(--text);
 }
 
@@ -287,7 +300,7 @@ h3 {
 .notice {
   padding: 1.5rem 2rem;
   margin-bottom: 2rem;
-  border: 1px solid rgba(196, 154, 92, 0.2);
+  border: 1px solid rgba(191, 133, 255, 0.25);
   border-radius: 6px;
   color: var(--accent);
   font-size: 0.9rem;
