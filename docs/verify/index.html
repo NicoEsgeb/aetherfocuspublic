@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AetherFocus — Email Verification</title>
+  <meta
+    name="description"
+    content="Verify your AetherFocus account email address."
+  >
+  <link rel="stylesheet" href="../styles.css?v=2">
+  <style>
+    .verify-hero {
+      text-align: center;
+      padding-top: 40px;
+      min-height: 56vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .verify-mark {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 52px;
+      line-height: 1;
+      margin: 0 auto 28px;
+      border: 1px solid rgba(196, 154, 92, 0.45);
+      background: radial-gradient(
+        circle at 30% 30%,
+        rgba(196, 154, 92, 0.35),
+        rgba(196, 154, 92, 0.05) 70%
+      );
+      color: var(--accent);
+      box-shadow:
+        0 0 0 1px rgba(196, 154, 92, 0.12),
+        0 20px 60px -10px rgba(196, 154, 92, 0.25);
+    }
+
+    .verify-mark.pending {
+      color: rgba(232, 224, 212, 0.55);
+      border-color: rgba(232, 224, 212, 0.18);
+      background: radial-gradient(
+        circle at 30% 30%,
+        rgba(232, 224, 212, 0.10),
+        rgba(232, 224, 212, 0.02) 70%
+      );
+    }
+
+    .verify-mark.error {
+      color: #d99077;
+      border-color: rgba(217, 144, 119, 0.45);
+      background: radial-gradient(
+        circle at 30% 30%,
+        rgba(217, 144, 119, 0.28),
+        rgba(217, 144, 119, 0.04) 70%
+      );
+    }
+
+    .spinner {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid rgba(232, 224, 212, 0.15);
+      border-top-color: var(--accent);
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .verify-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(36px, 5vw, 56px);
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+
+    .verify-lede {
+      max-width: 480px;
+      color: var(--dim);
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 0 auto 28px;
+    }
+
+    .verify-lede strong {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .return-note {
+      margin-top: 8px;
+      color: var(--dim);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="ambient-shell">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="orb orb-three"></div>
+
+    <main class="page">
+      <nav class="topbar" aria-label="Primary">
+        <a class="brand" href="../">AetherFocus</a>
+        <div class="nav-links">
+          <a href="../support/">Support</a>
+          <a href="../privacy/">Privacy</a>
+        </div>
+      </nav>
+
+      <section class="verify-hero">
+        <!-- Pending state -->
+        <div id="state-pending">
+          <div class="verify-mark pending"><div class="spinner"></div></div>
+          <h1 class="verify-title">Verifying your email…</h1>
+          <p class="verify-lede">Hold on a moment while we confirm your link.</p>
+        </div>
+
+        <!-- Success state -->
+        <div id="state-success" hidden>
+          <div class="verify-mark">✓</div>
+          <h1 class="verify-title">Email verified</h1>
+          <p class="verify-lede">
+            Welcome to AetherFocus. Return to the app to claim your starter eggs
+            and begin your first session.
+          </p>
+          <p class="return-note">You can close this tab</p>
+        </div>
+
+        <!-- Error state -->
+        <div id="state-error" hidden>
+          <div class="verify-mark error">!</div>
+          <h1 class="verify-title">Verification failed</h1>
+          <p class="verify-lede" id="error-message">
+            This link may have expired or already been used.
+          </p>
+          <p class="return-note">Open AetherFocus and tap "Resend Email"</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import { getAuth, applyActionCode } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBf8RZBEhP_2b7BFeuNGQv7RcsW5zBDZBU",
+      authDomain: "aetherfocus-c10da.firebaseapp.com",
+      projectId: "aetherfocus-c10da"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get("mode");
+    const oobCode = params.get("oobCode");
+
+    const pending = document.getElementById("state-pending");
+    const success = document.getElementById("state-success");
+    const error = document.getElementById("state-error");
+    const errorMessage = document.getElementById("error-message");
+
+    function show(el) {
+      pending.hidden = true;
+      success.hidden = true;
+      error.hidden = true;
+      el.hidden = false;
+    }
+
+    async function run() {
+      if (!oobCode) {
+        errorMessage.textContent = "This link is missing required information. Please use the link sent to your inbox.";
+        show(error);
+        return;
+      }
+
+      if (mode !== "verifyEmail") {
+        errorMessage.textContent = "Unsupported action. Please use the link sent to your inbox.";
+        show(error);
+        return;
+      }
+
+      try {
+        await applyActionCode(auth, oobCode);
+        show(success);
+      } catch (err) {
+        switch (err.code) {
+          case "auth/expired-action-code":
+            errorMessage.textContent = "This link has expired. Open AetherFocus and tap “Resend Email” to get a fresh one.";
+            break;
+          case "auth/invalid-action-code":
+            errorMessage.textContent = "This link is invalid or has already been used.";
+            break;
+          case "auth/user-disabled":
+            errorMessage.textContent = "This account has been disabled. Please contact support.";
+            break;
+          case "auth/user-not-found":
+            errorMessage.textContent = "We couldn't find this account. The link may be too old.";
+            break;
+          default:
+            errorMessage.textContent = err.message || "Something went wrong. Please try again.";
+        }
+        show(error);
+      }
+    }
+
+    run();
+  </script>
+</body>
+</html>
