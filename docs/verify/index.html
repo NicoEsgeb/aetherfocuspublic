@@ -2,6 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script>
+    // Firebase Auth shares a single Action URL across all email templates,
+    // so password-reset links land here too. Bounce them to /reset/ before
+    // the page renders, so the user never sees a flash of the verification UI.
+    (function () {
+      try {
+        var mode = new URLSearchParams(window.location.search).get("mode");
+        if (mode === "resetPassword") {
+          window.location.replace("/reset/" + window.location.search);
+        }
+      } catch (e) { /* fall through — module script below will handle it */ }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NanaiNest — Email Verification</title>
   <meta
@@ -221,6 +234,15 @@
     const params = new URLSearchParams(window.location.search);
     const mode = params.get("mode");
     const oobCode = params.get("oobCode");
+
+    // Firebase Auth uses a single global Action URL across all email templates,
+    // so password-reset links also land here. Dispatch by mode — anything
+    // that isn't email verification gets handed off to the right page.
+    if (mode === "resetPassword") {
+      window.location.replace("/reset/" + window.location.search);
+      // Stop further script execution while the redirect happens.
+      throw new Error("Redirecting to /reset/");
+    }
 
     const pending = document.getElementById("state-pending");
     const success = document.getElementById("state-success");
