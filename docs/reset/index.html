@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NanaiNest — Reset Password</title>
+  <meta
+    name="description"
+    content="Reset your NanaiNest account password."
+  >
+  <link rel="stylesheet" href="../styles.css?v=3">
+  <style>
+    .verify-hero {
+      text-align: center;
+      padding-top: 40px;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .verify-mark {
+      position: relative;
+      width: 124px;
+      height: 124px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 58px;
+      line-height: 1;
+      margin: 0 auto 36px;
+      color: var(--text);
+      background:
+        radial-gradient(circle at center, #050210 0%, #0c0420 65%, #160a30 100%);
+      box-shadow:
+        inset 0 0 22px rgba(191, 133, 255, 0.28),
+        0 0 0 1px rgba(191, 133, 255, 0.45),
+        0 0 50px 2px rgba(191, 133, 255, 0.42),
+        0 0 110px 14px rgba(191, 133, 255, 0.22);
+      animation: corona-pulse 4.5s ease-in-out infinite;
+    }
+
+    .verify-mark::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 300deg,
+        rgba(220, 180, 255, 0) 0deg,
+        rgba(220, 180, 255, 0.85) 35deg,
+        rgba(191, 133, 255, 0.50) 75deg,
+        rgba(191, 133, 255, 0) 130deg
+      );
+      -webkit-mask: radial-gradient(circle, transparent 60px, black 62px);
+              mask: radial-gradient(circle, transparent 60px, black 62px);
+      pointer-events: none;
+    }
+
+    @keyframes corona-pulse {
+      0%, 100% {
+        box-shadow:
+          inset 0 0 22px rgba(191, 133, 255, 0.28),
+          0 0 0 1px rgba(191, 133, 255, 0.45),
+          0 0 50px 2px rgba(191, 133, 255, 0.42),
+          0 0 110px 14px rgba(191, 133, 255, 0.22);
+      }
+      50% {
+        box-shadow:
+          inset 0 0 22px rgba(191, 133, 255, 0.32),
+          0 0 0 1px rgba(191, 133, 255, 0.55),
+          0 0 65px 4px rgba(191, 133, 255, 0.55),
+          0 0 140px 18px rgba(191, 133, 255, 0.30);
+      }
+    }
+
+    .verify-mark.pending {
+      color: var(--dim);
+      animation-duration: 6s;
+    }
+
+    .verify-mark.error {
+      background:
+        radial-gradient(circle at center, #100406 0%, #20060a 65%, #2e0a10 100%);
+      box-shadow:
+        inset 0 0 22px rgba(255, 140, 110, 0.25),
+        0 0 0 1px rgba(255, 140, 110, 0.45),
+        0 0 50px 2px rgba(255, 140, 110, 0.35),
+        0 0 110px 14px rgba(255, 140, 110, 0.18);
+      animation: none;
+      color: #FFC5A8;
+    }
+    .verify-mark.error::before {
+      background: conic-gradient(
+        from 300deg,
+        rgba(255, 200, 180, 0) 0deg,
+        rgba(255, 200, 180, 0.75) 35deg,
+        rgba(255, 140, 110, 0.45) 75deg,
+        rgba(255, 140, 110, 0) 130deg
+      );
+    }
+
+    .spinner {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid rgba(191, 133, 255, 0.18);
+      border-top-color: var(--accent);
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .verify-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(36px, 5vw, 56px);
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    .verify-lede {
+      max-width: 480px;
+      color: var(--dim);
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 0 auto 28px;
+    }
+
+    .verify-lede strong {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .return-note {
+      margin-top: 8px;
+      color: var(--accent);
+      font-size: 12.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .reset-form {
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .reset-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(191, 133, 255, 0.18);
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 15px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .reset-input:focus {
+      outline: none;
+      border-color: rgba(191, 133, 255, 0.55);
+    }
+
+    .reset-input::placeholder {
+      color: var(--dim);
+    }
+
+    .reset-submit {
+      width: 100%;
+      padding: 14px 16px;
+      margin-top: 4px;
+      background: var(--accent);
+      color: #060818;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .reset-submit:hover {
+      opacity: 0.9;
+    }
+
+    .reset-submit:active {
+      transform: scale(0.98);
+    }
+
+    .reset-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-error {
+      color: #FFC5A8;
+      font-size: 13px;
+      margin-top: 14px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .verify-mark { animation: none; }
+      .spinner { animation-duration: 2s; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-shell">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="orb orb-three"></div>
+
+    <main class="page">
+      <nav class="topbar" aria-label="Primary">
+        <a class="brand" href="../">NanaiNest</a>
+        <div class="nav-links">
+          <a href="../support/">Support</a>
+          <a href="../privacy/">Privacy</a>
+        </div>
+      </nav>
+
+      <section class="verify-hero">
+        <!-- Pending state — verifying the reset link -->
+        <div id="state-pending">
+          <div class="verify-mark pending"><div class="spinner"></div></div>
+          <h1 class="verify-title">Checking your link…</h1>
+          <p class="verify-lede">Hold on a moment while we confirm.</p>
+        </div>
+
+        <!-- Form state — link verified, ready to enter a new password -->
+        <div id="state-form" hidden>
+          <div class="verify-mark"></div>
+          <h1 class="verify-title">Choose a new password</h1>
+          <p class="verify-lede">
+            Pick a fresh password for <strong id="form-email-display">your account</strong>.
+          </p>
+          <form class="reset-form" id="reset-form" autocomplete="off">
+            <input type="password" id="new-password" class="reset-input"
+                   placeholder="New password (min 6 characters)"
+                   minlength="6" required autocomplete="new-password">
+            <input type="password" id="confirm-password" class="reset-input"
+                   placeholder="Confirm new password"
+                   minlength="6" required autocomplete="new-password">
+            <button type="submit" id="submit-button" class="reset-submit">
+              Reset password
+            </button>
+            <div class="form-error" id="form-error" hidden></div>
+          </form>
+        </div>
+
+        <!-- Success state -->
+        <div id="state-success" hidden>
+          <div class="verify-mark">✓</div>
+          <h1 class="verify-title">Password updated</h1>
+          <p class="verify-lede">
+            Your password has been reset. Return to the NanaiNest app and sign in with your new password.
+          </p>
+          <p class="return-note">You can close this tab</p>
+        </div>
+
+        <!-- Error state -->
+        <div id="state-error" hidden>
+          <div class="verify-mark error">!</div>
+          <h1 class="verify-title">Reset link invalid</h1>
+          <p class="verify-lede" id="error-message">
+            This link may have expired or already been used.
+          </p>
+          <p class="return-note">Open NanaiNest and tap "Forgot password?" again</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import {
+      getAuth,
+      verifyPasswordResetCode,
+      confirmPasswordReset
+    } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBf8RZBEhP_2b7BFeuNGQv7RcsW5zBDZBU",
+      authDomain: "aetherfocus-c10da.firebaseapp.com",
+      projectId: "aetherfocus-c10da"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get("mode");
+    const oobCode = params.get("oobCode");
+
+    const pending = document.getElementById("state-pending");
+    const form = document.getElementById("state-form");
+    const success = document.getElementById("state-success");
+    const error = document.getElementById("state-error");
+    const errorMessage = document.getElementById("error-message");
+    const formEmailDisplay = document.getElementById("form-email-display");
+    const resetForm = document.getElementById("reset-form");
+    const newPasswordInput = document.getElementById("new-password");
+    const confirmPasswordInput = document.getElementById("confirm-password");
+    const submitButton = document.getElementById("submit-button");
+    const formError = document.getElementById("form-error");
+
+    function show(el) {
+      pending.hidden = true;
+      form.hidden = true;
+      success.hidden = true;
+      error.hidden = true;
+      el.hidden = false;
+    }
+
+    function showFormError(msg) {
+      formError.textContent = msg;
+      formError.hidden = false;
+    }
+
+    function hideFormError() {
+      formError.hidden = true;
+    }
+
+    function describeError(err) {
+      switch (err.code) {
+        case "auth/expired-action-code":
+          return "This link has expired. Open NanaiNest and tap “Forgot password?” to get a fresh one.";
+        case "auth/invalid-action-code":
+          return "This link is invalid or has already been used.";
+        case "auth/user-disabled":
+          return "This account has been disabled. Please contact support.";
+        case "auth/user-not-found":
+          return "We couldn't find this account. The link may be too old.";
+        case "auth/weak-password":
+          return "Password is too weak. Try something stronger.";
+        default:
+          return err.message || "Something went wrong. Please try again.";
+      }
+    }
+
+    async function verifyLink() {
+      if (!oobCode) {
+        errorMessage.textContent = "This link is missing required information. Please use the link sent to your inbox.";
+        show(error);
+        return;
+      }
+      if (mode !== "resetPassword") {
+        errorMessage.textContent = "Unsupported action. Please use the link sent to your inbox.";
+        show(error);
+        return;
+      }
+
+      try {
+        const email = await verifyPasswordResetCode(auth, oobCode);
+        formEmailDisplay.textContent = email;
+        show(form);
+        newPasswordInput.focus();
+      } catch (err) {
+        errorMessage.textContent = describeError(err);
+        show(error);
+      }
+    }
+
+    resetForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      hideFormError();
+
+      const newPassword = newPasswordInput.value;
+      const confirmPassword = confirmPasswordInput.value;
+
+      if (newPassword.length < 6) {
+        showFormError("Password must be at least 6 characters.");
+        return;
+      }
+      if (newPassword !== confirmPassword) {
+        showFormError("Passwords don't match. Please re-enter.");
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Updating…";
+
+      try {
+        await confirmPasswordReset(auth, oobCode, newPassword);
+        show(success);
+      } catch (err) {
+        // Link-level errors kick back to the full error state; field-level
+        // errors (weak password, etc.) stay inline so the user can retry.
+        if (err.code === "auth/expired-action-code" ||
+            err.code === "auth/invalid-action-code" ||
+            err.code === "auth/user-disabled" ||
+            err.code === "auth/user-not-found") {
+          errorMessage.textContent = describeError(err);
+          show(error);
+        } else {
+          submitButton.disabled = false;
+          submitButton.textContent = "Reset password";
+          showFormError(describeError(err));
+        }
+      }
+    });
+
+    verifyLink();
+  </script>
+</body>
+</html>
