@@ -2,103 +2,385 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NanaiNest</title>
-  <meta
-    name="description"
-    content="NanaiNest transforms your Mac into a living focus sanctuary. Atmospheric worlds, layered ambient sound, curated music, and audio-reactive visuals."
-  >
-  <link rel="stylesheet" href="./styles.css?v=3">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>NanaiNest — Your desk becomes a world</title>
+  <meta name="description"
+    content="NanaiNest turns your Mac into a living focus sanctuary. Build atmospheres, sculpt ambient sound, and watch audio-reactive spheres hatch from primordial eggs — light that's yours to keep.">
+  <meta name="theme-color" content="#060818">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NanaiNest — Your desk becomes a world">
+  <meta property="og:description"
+    content="A living focus sanctuary for macOS. Layer sound, light a world, and hatch audio-reactive spheres from primordial eggs.">
+  <meta property="og:url" content="https://nanainest.com/">
+  <meta property="og:image" content="https://nanainest.com/assets/icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NanaiNest — Your desk becomes a world">
+  <meta name="twitter:description" content="A living focus sanctuary for macOS. Hatch audio-reactive spheres from primordial eggs.">
+  <meta name="twitter:image" content="https://nanainest.com/assets/icon.png">
+
+  <link rel="icon" href="./assets/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap">
+
+  <link rel="stylesheet" href="./home.css?v=1">
 </head>
 <body>
-  <div class="ambient-shell">
-    <div class="orb orb-one"></div>
-    <div class="orb orb-two"></div>
-    <div class="orb orb-three"></div>
-
-    <main class="page">
-      <nav class="topbar" aria-label="Primary">
-        <a class="brand" href="./">NanaiNest</a>
-        <div class="nav-links">
-          <a href="./support/">Support</a>
-          <a href="./privacy/">Privacy</a>
-        </div>
-      </nav>
-
-      <section class="hero">
-        <p class="eyebrow">For macOS</p>
-        <h1>Your desk becomes a world.</h1>
-        <p class="lede">
-          Ambient rain over a medieval tavern. Wind through a starlit forest.
-          Firelight in a stone library. NanaiNest wraps your workspace in
-          handcrafted atmospheres — layer sound, play music, and watch
-          reactive visuals pulse with the room around you.
-        </p>
-        <div class="button-row">
-          <a class="button primary" href="#">Download on the Mac App Store</a>
-        </div>
-      </section>
-
-      <section class="feature-grid" aria-label="Highlights">
-        <article class="card">
-          <p class="eyebrow">Atmospheres</p>
-          <h2>Worlds, not wallpapers</h2>
-          <p>
-            Each environment is a full scene — layered video, ambient sound,
-            and reactive light designed to hold your attention without
-            stealing it. Switch between them to match your mood or the kind
-            of work ahead.
-          </p>
-        </article>
-
-        <article class="card">
-          <p class="eyebrow">Sound</p>
-          <h2>Sound you can sculpt</h2>
-          <p>
-            Blend curated music with ambient layers — rain, crackling fire,
-            forest wind, night creatures. Every layer has its own volume.
-            Build the exact soundscape your focus needs.
-          </p>
-        </article>
-
-        <article class="card">
-          <p class="eyebrow">Visuals</p>
-          <h2>Eleven spheres that listen</h2>
-          <p>
-            Audio-reactive visualizers respond to your microphone or system
-            audio in real time. Drifting nebulae, fractal lattices, orbital
-            geometries — they breathe with whatever is playing so your
-            workspace feels alive.
-          </p>
-        </article>
-
-        <article class="card">
-          <p class="eyebrow">Focus</p>
-          <h2>Everything you need, nothing you don't</h2>
-          <p>
-            Timers, a scratchpad, a task list. All inside the app, all
-            designed to stay out of the way. No accounts, no internet
-            required, no tracking. Just you and the work.
-          </p>
-        </article>
-      </section>
-
-      <section class="info-strip">
-        <div>
-          <h2>Questions?</h2>
-          <p class="lede" style="margin-top:0.5rem">We read every message.</p>
-        </div>
-        <a class="button primary" href="./support/">Get support</a>
-      </section>
-
-      <footer class="site-footer">
-        <p>&copy; 2026 NanaiNest</p>
-        <div class="footer-links">
-          <a href="./support/">Support</a>
-          <a href="./privacy/">Privacy</a>
-        </div>
-      </footer>
-    </main>
+  <!-- fixed atmospheric layers -->
+  <div class="nebula" aria-hidden="true">
+    <span class="neb neb-1"></span>
+    <span class="neb neb-2"></span>
+    <span class="neb neb-3"></span>
+    <span class="neb neb-4"></span>
   </div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><i></i></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top" aria-label="NanaiNest home">
+      <img src="./assets/icon.png" alt="" width="30" height="30">
+      <span>NanaiNest</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#worlds">Worlds</a>
+      <a href="#spheres">Spheres</a>
+      <a href="#origin">Origin</a>
+      <a href="#collection">Collection</a>
+      <a href="#binder">Binder</a>
+      <a href="#premium">Premium</a>
+    </nav>
+    <a class="btn btn--ghost nav__cta" href="#get">Download</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- mobile menu -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <a href="#worlds">Worlds</a>
+    <a href="#spheres">Spheres</a>
+    <a href="#origin">Origin</a>
+    <a href="#collection">Collection</a>
+    <a href="#binder">Binder</a>
+    <a href="#premium">Premium</a>
+    <a href="#get" class="menu__cta">Download on the Mac App Store</a>
+  </div>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <canvas class="hero__orb" id="heroOrb" aria-hidden="true"></canvas>
+      <div class="hero__veil" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <p class="eyebrow eyebrow--center">For macOS &nbsp;·&nbsp; Born in the Nest</p>
+        <h1 class="hero__title">Your desk<br>becomes a world.</h1>
+        <p class="hero__lede">
+          Ambient rain over a medieval tavern. Wind through a starlit forest. Firelight in a
+          stone library. Layer sound, light a world, and focus — while something quietly wakes
+          in the&nbsp;Nest.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#get">Download on the Mac App Store</a>
+          <a class="btn btn--ghost" href="#worlds">Enter the Nest</a>
+        </div>
+        <div class="hero__meta">
+          <span>macOS 13+</span><i></i><span>iOS coming soon</span><i></i><span>No account required</span>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#lore" aria-label="Scroll">
+        <span>scroll</span>
+        <svg viewBox="0 0 24 40" width="20" height="34"><rect x="1" y="1" width="22" height="38" rx="11" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.5"/><circle class="hero__scrolldot" cx="12" cy="10" r="3" fill="currentColor"/></svg>
+      </a>
+    </section>
+
+    <!-- ============ LORE INTRO ============ -->
+    <section class="lore" id="lore">
+      <div class="lore__inner reveal">
+        <p class="lore__mark">— from the Nest —</p>
+        <p class="lore__line">
+          In the Nest, focus is never idle. Each <em>pulse</em> of sound becomes energy, and
+          energy — given time and attention — takes <em>form</em>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ WORLDS / ATMOSPHERES ============ -->
+    <section class="section worlds" id="worlds">
+      <header class="section__head reveal">
+        <p class="eyebrow">Atmospheres</p>
+        <h2 class="section__title">Worlds, not wallpapers.</h2>
+        <p class="section__lede">
+          Each environment is a full scene — layered video, ambient sound, and reactive light
+          designed to hold your attention without stealing it. Step between them to match the
+          work ahead.
+        </p>
+      </header>
+      <div class="worlds__grid">
+        <article class="world reveal" style="--w-a:#3a1d5e; --w-b:#0c0a24" data-i="01">
+          <div class="world__art world__art--tavern"></div>
+          <div class="world__body"><h3>The Tavern</h3><p>Rain on the eaves, a low hearth, voices a room away.</p></div>
+        </article>
+        <article class="world reveal" style="--w-a:#123a3a; --w-b:#06121c" data-i="02">
+          <div class="world__art world__art--forest"></div>
+          <div class="world__body"><h3>Starlit Forest</h3><p>Wind in the canopy and night creatures, far off.</p></div>
+        </article>
+        <article class="world reveal" style="--w-a:#4a2a12; --w-b:#1a0f10" data-i="03">
+          <div class="world__art world__art--library"></div>
+          <div class="world__body"><h3>Stone Library</h3><p>Crackling fire, turning pages, deep and still.</p></div>
+        </article>
+        <article class="world reveal" style="--w-a:#1b2a55; --w-b:#070a1e" data-i="04">
+          <div class="world__art world__art--rain"></div>
+          <div class="world__body"><h3>Rainfall</h3><p>A steady downpour to wash the noise away.</p></div>
+        </article>
+        <article class="world reveal" style="--w-a:#3d1640; --w-b:#0c061a" data-i="05">
+          <div class="world__art world__art--aurora"></div>
+          <div class="world__body"><h3>Aurora Veil</h3><p>Slow ribbons of light over a quiet horizon.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ SPHERES ============ -->
+    <section class="section spheres" id="spheres">
+      <canvas class="aether-web" id="aetherWeb" aria-hidden="true"></canvas>
+      <header class="section__head reveal">
+        <p class="eyebrow">Living light</p>
+        <h2 class="section__title">Spheres that listen.</h2>
+        <p class="section__lede">
+          Audio-reactive visualizers answer your microphone and system sound in real time. Each
+          one is a current of aether — <em>linking</em> the sound around you into motion. Drifting
+          nebulae, fractal lattices, orbital geometry: your workspace, breathing.
+        </p>
+      </header>
+      <div class="spheres__grid">
+        <article class="orb-card reveal" style="--c1:#BF85FF; --c2:#5CD1FA"><div class="orb-card__viz viz-orbital"></div><div class="orb-card__tag"><span>Orbital</span><b>Free</b></div></article>
+        <article class="orb-card reveal" style="--c1:#7df0c8; --c2:#5cf2a0"><div class="orb-card__viz viz-bloom"></div><div class="orb-card__tag"><span>Ethereal Bloom</span><b>Free</b></div></article>
+        <article class="orb-card reveal" style="--c1:#5cd1fa; --c2:#7aa0ff"><div class="orb-card__viz viz-nexus"></div><div class="orb-card__tag"><span>Nexus</span><b>Free</b></div></article>
+        <article class="orb-card reveal" style="--c1:#c77bff; --c2:#ff7bd6"><div class="orb-card__viz viz-nebula"></div><div class="orb-card__tag"><span>Nebula</span><b>Free</b></div></article>
+        <article class="orb-card reveal" style="--c1:#a060ff; --c2:#ff6fae"><div class="orb-card__viz viz-vortex"></div><div class="orb-card__tag"><span>Vortex</span><b class="prem">Premium</b></div></article>
+        <article class="orb-card reveal" style="--c1:#8ab4ff; --c2:#c9a961"><div class="orb-card__viz viz-galaxy"></div><div class="orb-card__tag"><span>Galaxy</span><b class="prem">Premium</b></div></article>
+      </div>
+      <p class="spheres__foot reveal">Eleven spheres and counting — five free, the rest waiting in the packs.</p>
+    </section>
+
+    <!-- ============ ORIGIN / EGGS ============ -->
+    <section class="section origin" id="origin">
+      <div class="origin__grid">
+        <div class="origin__visual reveal">
+          <div class="egg" id="egg">
+            <div class="egg__aura"></div>
+            <div class="egg__body">
+              <span class="egg__crack"></span>
+              <span class="egg__core"></span>
+            </div>
+            <div class="egg__ring"></div>
+            <div class="egg__sparks"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <p class="origin__hint">hover the egg</p>
+        </div>
+        <div class="origin__copy reveal">
+          <p class="eyebrow">Origin</p>
+          <h2 class="section__title">Every sphere begins as an egg.</h2>
+          <p class="section__lede">
+            Spheres aren't switched on — they're <em>hatched</em>. Focus long enough and the
+            aether inside an egg stirs, pulse by pulse, until the shell gives way and a new form
+            of light wakes. Common or legendary, it's yours to keep.
+          </p>
+          <ul class="origin__steps">
+            <li><b>01</b><div><h4>Incubate</h4><p>Place an egg in the Nest. It listens to your focus.</p></div></li>
+            <li><b>02</b><div><h4>Pulse</h4><p>Every beat of sound feeds the aether within.</p></div></li>
+            <li><b>03</b><div><h4>Hatch</h4><p>The shell cracks. A sphere — and its variant — is revealed.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COLLECTION ============ -->
+    <section class="section collection" id="collection">
+      <header class="section__head reveal">
+        <p class="eyebrow">The collection</p>
+        <h2 class="section__title">Light, bound as cards.</h2>
+        <p class="section__lede">
+          What you focus into being is yours. Every hatch rolls a variant — some common, a rare
+          few legendary — and binds it as a holographic card. Tilt one. The aether catches the
+          light.
+        </p>
+      </header>
+      <div class="collection__stage reveal">
+        <article class="holo card-orbital" data-rarity="legendary" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Orbital</span><small>Liquid Gold</small></div><span class="holo__rarity">Legendary</span><span class="holo__no">№ 01</span></div></article>
+        <article class="holo card-vortex" data-rarity="rare" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Vortex</span><small>Aurora Prism</small></div><span class="holo__rarity">Rare</span><span class="holo__no">№ 02</span></div></article>
+        <article class="holo card-bloom" data-rarity="uncommon" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Ethereal Bloom</span><small>Moonveil</small></div><span class="holo__rarity">Uncommon</span><span class="holo__no">№ 03</span></div></article>
+      </div>
+      <div class="rarity-key reveal">
+        <span class="rk rk--c">Common</span>
+        <span class="rk rk--u">Uncommon</span>
+        <span class="rk rk--r">Rare</span>
+        <span class="rk rk--l">Legendary</span>
+      </div>
+    </section>
+
+    <!-- ============ CARDS FROM THE CREATOR (public binder) ============ -->
+    <section class="section binder-sec" id="binder">
+      <header class="section__head reveal">
+        <p class="eyebrow">Cards from the Creator</p>
+        <h2 class="section__title">The Creator's Binder.</h2>
+        <p class="section__lede">
+          A public, hand-designed binder — the forms the maker pulled from the aether first.
+          Built with the in-app card studio, preset by preset. New pages as the collection grows.
+        </p>
+      </header>
+
+      <div class="binder reveal">
+        <div class="binder__spine" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="binder__page">
+          <div class="binder__grid" id="binderGrid">
+            <!-- filled slots (replace with real preset card art later) -->
+            <article class="holo holo--slot card-orbital" data-rarity="legendary" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Orbital</span><small>Liquid Gold</small></div><span class="holo__rarity">Legendary</span><span class="holo__no">01</span></div></article>
+            <article class="holo holo--slot card-nexus" data-rarity="legendary" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Nexus</span><small>Aurora Currents</small></div><span class="holo__rarity">Legendary</span><span class="holo__no">02</span></div></article>
+            <article class="holo holo--slot card-bloom" data-rarity="rare" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Ethereal Bloom</span><small>Legendary Blossom</small></div><span class="holo__rarity">Rare</span><span class="holo__no">03</span></div></article>
+            <article class="holo holo--slot card-vortex" data-rarity="rare" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Vortex</span><small>Fractal Void</small></div><span class="holo__rarity">Rare</span><span class="holo__no">04</span></div></article>
+            <article class="holo holo--slot card-galaxy" data-rarity="uncommon" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Galaxy</span><small>Spectral</small></div><span class="holo__rarity">Uncommon</span><span class="holo__no">05</span></div></article>
+            <article class="holo holo--slot card-nebula" data-rarity="uncommon" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Nebula</span><small>Default</small></div><span class="holo__rarity">Uncommon</span><span class="holo__no">06</span></div></article>
+            <!-- empty slots — room to grow -->
+            <div class="slot slot--empty" aria-label="Empty slot"><span>07</span></div>
+            <div class="slot slot--empty" aria-label="Empty slot"><span>08</span></div>
+            <div class="slot slot--empty" aria-label="Empty slot"><span>09</span></div>
+          </div>
+          <div class="binder__foot">
+            <span>The Creator's Binder · Page 01</span>
+            <span class="binder__count">6 / 9 bound</span>
+          </div>
+        </div>
+      </div>
+      <p class="binder__note reveal">A public binder is coming to your account, too — bind your own and share a page.</p>
+    </section>
+
+    <!-- ============ SOUND ============ -->
+    <section class="section split sound" id="sound">
+      <div class="split__media reveal">
+        <div class="mixer">
+          <div class="mixer__row"><label>Music</label><div class="mixer__track"><i style="--v:72%"></i></div></div>
+          <div class="mixer__row"><label>Rain</label><div class="mixer__track"><i style="--v:54%"></i></div></div>
+          <div class="mixer__row"><label>Fire</label><div class="mixer__track"><i style="--v:38%"></i></div></div>
+          <div class="mixer__row"><label>Forest</label><div class="mixer__track"><i style="--v:61%"></i></div></div>
+          <div class="mixer__row"><label>Night</label><div class="mixer__track"><i style="--v:28%"></i></div></div>
+        </div>
+      </div>
+      <div class="split__copy reveal">
+        <p class="eyebrow">Sound</p>
+        <h2 class="section__title">Sound you can sculpt.</h2>
+        <p class="section__lede">
+          Blend curated music with ambient layers — rain, crackling fire, forest wind, night
+          creatures. Every layer has its own volume. Build the exact soundscape your focus
+          needs, then let the spheres answer to it.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ FOCUS TOOLS ============ -->
+    <section class="section focus" id="focus">
+      <header class="section__head reveal">
+        <p class="eyebrow">Focus</p>
+        <h2 class="section__title">Everything you need, nothing you don't.</h2>
+      </header>
+      <div class="focus__grid">
+        <article class="tool reveal"><div class="tool__ic">◷</div><h3>Timer</h3><p>A quiet Pomodoro to shape your sessions — and feed the eggs.</p></article>
+        <article class="tool reveal"><div class="tool__ic">❏</div><h3>Notes</h3><p>Multi-tab scratch space that stays out of the way.</p></article>
+        <article class="tool reveal"><div class="tool__ic">☑</div><h3>Tasks</h3><p>A simple list. Check things off without leaving the world.</p></article>
+        <article class="tool reveal"><div class="tool__ic">⦿</div><h3>Private</h3><p>No tracking, no internet required. Just you and the work.</p></article>
+      </div>
+    </section>
+
+    <!-- ============ PREMIUM ============ -->
+    <section class="section premium" id="premium">
+      <header class="section__head reveal">
+        <p class="eyebrow">Packs</p>
+        <h2 class="section__title">Start free. Expand the universe.</h2>
+        <p class="section__lede">Five spheres free, forever. Unlock themed packs of premium visualizers when you want more light in the Nest.</p>
+      </header>
+      <div class="plans">
+        <article class="plan reveal">
+          <h3>The Nest</h3>
+          <p class="plan__price">Free</p>
+          <ul><li>5 audio-reactive spheres</li><li>5 atmospheres &amp; the ambient mixer</li><li>Timer, notes &amp; tasks</li><li>Hatch &amp; collect eggs</li></ul>
+          <a class="btn btn--primary plan__cta" href="#get">Download</a>
+        </article>
+        <article class="plan plan--feature reveal">
+          <span class="plan__flag">Premium Packs</span>
+          <h3>Expansions</h3>
+          <p class="plan__price">£1.99 <small>each</small></p>
+          <ul><li>Synapse, Singularity, Vortex &amp; more</li><li>Themed lore packs — Emberbound &amp; Mantles</li><li>Rare card variants to hatch</li><li>One-time purchase, yours to keep</li></ul>
+          <a class="btn btn--ghost plan__cta" href="#get">See the packs in-app</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ ON THE HORIZON (future / scaffolded) ============ -->
+    <section class="section horizon" id="horizon">
+      <header class="section__head reveal">
+        <p class="eyebrow">On the horizon</p>
+        <h2 class="section__title">The Nest is opening.</h2>
+        <p class="section__lede">What's coming next to nanainest.com. Scaffolded today, lit up soon.</p>
+      </header>
+      <div class="horizon__grid">
+        <article class="soon reveal" id="account">
+          <span class="soon__badge">Soon</span>
+          <h3>Sign in on the web</h3>
+          <p>Log in and watch your collection sync from the app — every egg, sphere and card, in one place.</p>
+        </article>
+        <article class="soon reveal">
+          <span class="soon__badge">Soon</span>
+          <h3>Hatch in your browser</h3>
+          <p>Focus on the web and feed your eggs the same aether — one cloud, every device.</p>
+        </article>
+        <article class="soon reveal">
+          <span class="soon__badge">Planned</span>
+          <h3>Share a binder</h3>
+          <p>Publish a page of your own bound cards and trade pages with the Nest.</p>
+        </article>
+        <article class="soon reveal">
+          <span class="soon__badge">Planned</span>
+          <h3>NanaiNest for iOS</h3>
+          <p>The Nest in your pocket — the same sanctuary, on iPhone &amp; iPad.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="get" id="get">
+      <div class="get__inner reveal">
+        <h2>Light a world.<br>Begin in the Nest.</h2>
+        <p>Free on macOS. No account required to start — sign in only when you want to keep your collection in the cloud.</p>
+        <div class="get__cta">
+          <a class="btn btn--primary btn--lg" href="#">Download on the Mac App Store</a>
+          <a class="btn btn--ghost btn--lg" href="./support/">Questions? Talk to us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot">
+    <div class="foot__top">
+      <a class="foot__brand" href="#top"><img src="./assets/icon.png" alt="" width="26" height="26"><span>NanaiNest</span></a>
+      <p class="foot__tag">A living focus sanctuary. Fantasy worldbuilding, meet lo-fi.</p>
+    </div>
+    <div class="foot__cols">
+      <div><h5>Explore</h5><a href="#worlds">Worlds</a><a href="#spheres">Spheres</a><a href="#collection">Collection</a><a href="#binder">Binder</a></div>
+      <div><h5>Get it</h5><a href="#get">Download</a><a href="#premium">Premium packs</a><a href="#horizon">On the horizon</a></div>
+      <div><h5>Help</h5><a href="./support/">Support</a><a href="./privacy/">Privacy</a></div>
+    </div>
+    <div class="foot__base">
+      <p>&copy; 2026 NanaiNest</p>
+      <p class="foot__whisper">Every sphere begins as an egg.</p>
+    </div>
+  </footer>
+
+  <script src="./home.js?v=1" defer></script>
 </body>
 </html>
