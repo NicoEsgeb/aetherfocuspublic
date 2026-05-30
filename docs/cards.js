@@ -20,7 +20,6 @@
   'use strict';
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   const DEFAULT_PRESET = './cards/_default/card.cardpreset';
 
   /* ---------- utilities (ported from the editor) ---------- */
