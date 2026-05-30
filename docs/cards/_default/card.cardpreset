@@ -1,0 +1,106 @@
+{
+  "version": 2,
+  "cardSize": { "width": 280, "height": 380 },
+  "frontBgColor": "#0A0E27",
+  "backBgColor": "#0A0E27",
+  "frontLayerOrder": ["bg", "frameOuter", "orb", "star", "eyebrow", "title", "lore", "foot"],
+  "backLayerOrder": ["bgB", "frameOuterB", "orbB", "starB", "titleB", "loreB", "footB"],
+  "frontLayers": [
+    {
+      "id": "bg", "type": "bg", "depth": 0,
+      "gradient": "radial-gradient(circle at 50% 34%, #241a44 0%, #120c2c 55%, #0A0E27 100%)",
+      "bgCornerRadius": 18
+    },
+    {
+      "id": "frameOuter", "type": "frame", "depth": 4,
+      "frameShape": "rect", "frameX": 50, "frameY": 50, "frameWidth": 92, "frameHeight": 94,
+      "frameBorderWidth": 4, "frameBorderStyle": "gold", "frameCornerRadius": 16,
+      "frameFillOpacity": 0, "frameBevel": true, "frameSparkle": true,
+      "frameShadow": true, "frameShadowSize": 14, "frameShadowOpacity": 0.3
+    },
+    {
+      "id": "orb", "type": "frame", "depth": 22,
+      "frameShape": "circle", "frameX": 50, "frameY": 49, "frameWidth": 54, "frameHeight": 39,
+      "frameBorderWidth": 3, "frameBorderStyle": "rainbow",
+      "frameFillColor": "#BF85FF", "frameFillOpacity": 0.07,
+      "frameBevel": true, "frameSparkle": true,
+      "frameInnerBorder": true, "frameInnerBorderColor": "#F5E6D3",
+      "frameInnerBorderOpacity": 0.25, "frameInnerBorderWidth": 1
+    },
+    {
+      "id": "star", "type": "text", "depth": 28,
+      "content": "✦", "x": 50, "y": 49, "width": 40, "textAlign": "center",
+      "fontFamily": "Cormorant Garamond", "fontSize": 46, "fontWeight": "500",
+      "color": "#D9C2FF", "textShadow": true
+    },
+    {
+      "id": "eyebrow", "type": "text", "depth": 12,
+      "content": "EMPTY SLOT", "x": 50, "y": 13, "width": 80, "textAlign": "center",
+      "fontFamily": "Space Mono", "fontSize": 11, "fontWeight": "700",
+      "color": "#BF85FF", "letterSpacing": 0.34, "textTransform": "uppercase"
+    },
+    {
+      "id": "title", "type": "text", "depth": 16,
+      "content": "NanaiNest", "x": 50, "y": 22, "width": 88, "textAlign": "center",
+      "fontFamily": "Cormorant Garamond", "fontSize": 33, "fontWeight": "600",
+      "color": "#F5E6D3", "letterSpacing": 0.01, "textShadow": true
+    },
+    {
+      "id": "lore", "type": "text", "depth": 10,
+      "content": "An aether form awaits binding.", "x": 50, "y": 76, "width": 84, "textAlign": "center",
+      "fontFamily": "DM Sans", "fontSize": 13, "fontWeight": "500",
+      "color": "#C9B8D8", "lineHeight": 1.4
+    },
+    {
+      "id": "foot", "type": "text", "depth": 8,
+      "content": "DESIGN ME · CARD STUDIO", "x": 50, "y": 90, "width": 88, "textAlign": "center",
+      "fontFamily": "Space Mono", "fontSize": 9.5, "fontWeight": "700",
+      "color": "#C9A961", "letterSpacing": 0.26, "textTransform": "uppercase"
+    }
+  ],
+  "backLayers": [
+    {
+      "id": "bgB", "type": "bg", "depth": 0,
+      "gradient": "linear-gradient(165deg, #1a1336 0%, #0A0E27 55%, #160a24 100%)",
+      "bgCornerRadius": 18
+    },
+    {
+      "id": "frameOuterB", "type": "frame", "depth": 4,
+      "frameShape": "rect", "frameX": 50, "frameY": 50, "frameWidth": 92, "frameHeight": 94,
+      "frameBorderWidth": 4, "frameBorderStyle": "gold", "frameCornerRadius": 16,
+      "frameFillOpacity": 0, "frameBevel": true, "frameSparkle": true,
+      "frameShadow": true, "frameShadowSize": 14, "frameShadowOpacity": 0.3
+    },
+    {
+      "id": "orbB", "type": "frame", "depth": 20,
+      "frameShape": "circle", "frameX": 50, "frameY": 46, "frameWidth": 50, "frameHeight": 37,
+      "frameBorderWidth": 3, "frameBorderStyle": "silver",
+      "frameFillColor": "#5CD1FA", "frameFillOpacity": 0.06,
+      "frameBevel": true, "frameSparkle": true
+    },
+    {
+      "id": "starB", "type": "text", "depth": 26,
+      "content": "✶", "x": 50, "y": 46, "width": 40, "textAlign": "center",
+      "fontFamily": "Cormorant Garamond", "fontSize": 40, "fontWeight": "500",
+      "color": "#9FE6FF", "textShadow": true
+    },
+    {
+      "id": "titleB", "type": "text", "depth": 16,
+      "content": "AETHER AWAITS", "x": 50, "y": 16, "width": 88, "textAlign": "center",
+      "fontFamily": "Cormorant Garamond", "fontSize": 27, "fontWeight": "600",
+      "color": "#F5E6D3", "letterSpacing": 0.04, "textShadow": true
+    },
+    {
+      "id": "loreB", "type": "text", "depth": 10,
+      "content": "Drop your .cardpreset\ninto this slot.", "x": 50, "y": 72, "width": 84, "textAlign": "center",
+      "fontFamily": "DM Sans", "fontSize": 13, "fontWeight": "500",
+      "color": "#C9B8D8", "lineHeight": 1.45
+    },
+    {
+      "id": "footB", "type": "text", "depth": 8,
+      "content": "NANAINEST · CARD STUDIO", "x": 50, "y": 90, "width": 88, "textAlign": "center",
+      "fontFamily": "Space Mono", "fontSize": 9.5, "fontWeight": "700",
+      "color": "#C9A961", "letterSpacing": 0.24, "textTransform": "uppercase"
+    }
+  ]
+}

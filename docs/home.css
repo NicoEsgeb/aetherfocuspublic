@@ -380,3 +380,76 @@ em{font-style:normal;color:var(--violet-3)}
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* ============================================================
+   PRESET CARDS (binder slots) — real .cardpreset hosts, 3D rotatable
+   Each .pcard[data-preset] is mounted by cards.js, which fetches the
+   preset JSON and builds:
+     .pcard > .pcard__viewport > .pcard__inner > .pcard__face--front/--back
+   then renders the card editor's layer engine (bg/img/text/frame +
+   holo / specular / sparkle). The inner is a fixed cardW×cardH box
+   scaled into the slot via --pscale; rotation/flip live on the inner.
+   ============================================================ */
+.pcard{position:relative;aspect-ratio:var(--card-w,280)/var(--card-h,380);
+  border-radius:16px;cursor:grab;outline:none;-webkit-tap-highlight-color:transparent;
+  touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.pcard:active{cursor:grabbing}
+.pcard:focus-visible{box-shadow:0 0 0 2px var(--violet),0 0 24px -4px var(--violet)}
+/* dashed placeholder until the preset is fetched + built (mirrors empty slots) */
+.pcard:not(.pcard--ready)::after{content:"";position:absolute;inset:0;border-radius:14px;
+  border:1.5px dashed rgba(201,169,97,.3);background:rgba(0,0,0,.18)}
+.pcard--failed::after{border-style:solid;border-color:rgba(201,169,97,.18)}
+/* slot pocket index — sits above the card, does not rotate */
+.pcard__no{position:absolute;top:8px;left:11px;z-index:6;pointer-events:none;
+  font-family:var(--serif);font-size:.82rem;line-height:1;color:rgba(245,230,211,.45);
+  text-shadow:0 1px 4px rgba(0,0,0,.6)}
+
+.pcard__viewport{position:absolute;inset:0;perspective:1100px;perspective-origin:50% 50%}
+.pcard__inner{position:absolute;inset:0;margin:auto;transform-style:preserve-3d;
+  transform-origin:center center;will-change:transform;transform:scale(var(--pscale,1))}
+/* faces — NO overflow:hidden here (it would flatten the 3D layer depth);
+   each layer clips itself with its own border-radius instead */
+.pcard__face{position:absolute;inset:0;width:100%;height:100%;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-style:preserve-3d}
+.pcard__face--back{transform:rotateY(180deg)}
+
+/* layer engine — ported from the card editor, scoped to .pcard */
+.pcard .card-layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;
+  border-radius:18px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.pcard .card-layer img{width:100%;height:100%;object-fit:cover;display:block;border-radius:18px}
+.pcard .card-text-layer{position:absolute;pointer-events:none;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  box-sizing:border-box;word-break:break-word;white-space:pre-wrap}
+.pcard .card-frame-layer{overflow:visible!important}
+
+/* tilt-driven holographic foil — background-position follows --holo-tx/--holo-ty
+   (set on the host by cards.js), so a still card = still foil, tilting sweeps it */
+.pcard .frame-holo-shift,
+.pcard .frame-holo-shift-slow{
+  background-position:calc(50% + var(--holo-tx,0%) * 2) calc(50% + var(--holo-ty,0%) * 2);
+  transition:background-position .12s ease-out}
+.pcard .img-holo-tilt{
+  background-position:calc(50% + var(--holo-tx,0%)) calc(50% + var(--holo-ty,0%));
+  transition:background-position .12s ease-out}
+/* narrow bright specular streak — ×4 so it sweeps faster than the colour wash */
+.pcard .img-holo-specular{
+  background-image:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.35) 46%,
+    rgba(255,255,255,.85) 50%,rgba(255,255,255,.35) 54%,transparent 65%);
+  background-size:260% 260%;
+  background-position:calc(50% + var(--holo-tx,0%) * 4) calc(50% + var(--holo-ty,0%) * 4);
+  mix-blend-mode:plus-lighter;transition:background-position .12s ease-out}
+/* sparkle twinkle (frame + image), masked to opaque pixels by inline mask */
+.pcard .frame-sparkle-overlay{
+  background-image:
+    radial-gradient(circle at 17% 24%,rgba(255,255,255,.95) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 83% 18%,rgba(255,255,255,.85) 0 1.3px,transparent 2.2px),
+    radial-gradient(circle at 47% 58%,rgba(255,255,255,.90) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 26% 77%,rgba(255,255,255,.95) 0 1.3px,transparent 2.2px),
+    radial-gradient(circle at 74% 83%,rgba(255,255,255,.80) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 92% 48%,rgba(255,255,255,.90) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 8% 50%,rgba(255,255,255,.85) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 58% 33%,rgba(255,255,255,.90) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 38% 12%,rgba(255,255,255,.80) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 65% 68%,rgba(255,255,255,.75) 0 1px,transparent 1.8px);
+  mix-blend-mode:screen;animation:pcard-sparkle-twinkle 2.4s ease-in-out infinite}
+@keyframes pcard-sparkle-twinkle{0%,100%{filter:brightness(.7)}50%{filter:brightness(1.9)}}

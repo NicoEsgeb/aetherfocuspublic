@@ -27,6 +27,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap">
+  <!-- Card Studio fonts — families a .cardpreset can use on the binder cards -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;600;700&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@400;600;700&family=Oswald:wght@400;600;700&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap">
 
   <link rel="stylesheet" href="./home.css?v=1">
 </head>
@@ -238,22 +241,23 @@
       <div class="binder reveal">
         <div class="binder__spine" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
         <div class="binder__page">
+          <!-- Each slot hosts a real .cardpreset (exported from the in-app Card Studio).
+               cards.js fetches ./cards/<NN>/card.cardpreset and renders it as a rotatable
+               3D holo card; a missing file falls back to ./cards/_default/. -->
           <div class="binder__grid" id="binderGrid">
-            <!-- filled slots (replace with real preset card art later) -->
-            <article class="holo holo--slot card-orbital" data-rarity="legendary" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Orbital</span><small>Liquid Gold</small></div><span class="holo__rarity">Legendary</span><span class="holo__no">01</span></div></article>
-            <article class="holo holo--slot card-nexus" data-rarity="legendary" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Nexus</span><small>Aurora Currents</small></div><span class="holo__rarity">Legendary</span><span class="holo__no">02</span></div></article>
-            <article class="holo holo--slot card-bloom" data-rarity="rare" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Ethereal Bloom</span><small>Legendary Blossom</small></div><span class="holo__rarity">Rare</span><span class="holo__no">03</span></div></article>
-            <article class="holo holo--slot card-vortex" data-rarity="rare" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Vortex</span><small>Fractal Void</small></div><span class="holo__rarity">Rare</span><span class="holo__no">04</span></div></article>
-            <article class="holo holo--slot card-galaxy" data-rarity="uncommon" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Galaxy</span><small>Spectral</small></div><span class="holo__rarity">Uncommon</span><span class="holo__no">05</span></div></article>
-            <article class="holo holo--slot card-nebula" data-rarity="uncommon" tabindex="0"><div class="holo__inner"><div class="holo__art"></div><div class="holo__sheen"></div><div class="holo__glare"></div><div class="holo__frame"></div><div class="holo__id"><span>Nebula</span><small>Default</small></div><span class="holo__rarity">Uncommon</span><span class="holo__no">06</span></div></article>
-            <!-- empty slots — room to grow -->
-            <div class="slot slot--empty" aria-label="Empty slot"><span>07</span></div>
-            <div class="slot slot--empty" aria-label="Empty slot"><span>08</span></div>
-            <div class="slot slot--empty" aria-label="Empty slot"><span>09</span></div>
+            <article class="pcard" data-preset="./cards/01/" tabindex="0" role="button" aria-label="Binder slot 01 — click to flip, drag to spin"><span class="pcard__no">01</span></article>
+            <article class="pcard" data-preset="./cards/02/" tabindex="0" role="button" aria-label="Binder slot 02 — click to flip, drag to spin"><span class="pcard__no">02</span></article>
+            <article class="pcard" data-preset="./cards/03/" tabindex="0" role="button" aria-label="Binder slot 03 — click to flip, drag to spin"><span class="pcard__no">03</span></article>
+            <article class="pcard" data-preset="./cards/04/" tabindex="0" role="button" aria-label="Binder slot 04 — click to flip, drag to spin"><span class="pcard__no">04</span></article>
+            <article class="pcard" data-preset="./cards/05/" tabindex="0" role="button" aria-label="Binder slot 05 — click to flip, drag to spin"><span class="pcard__no">05</span></article>
+            <article class="pcard" data-preset="./cards/06/" tabindex="0" role="button" aria-label="Binder slot 06 — click to flip, drag to spin"><span class="pcard__no">06</span></article>
+            <article class="pcard" data-preset="./cards/07/" tabindex="0" role="button" aria-label="Binder slot 07 — click to flip, drag to spin"><span class="pcard__no">07</span></article>
+            <article class="pcard" data-preset="./cards/08/" tabindex="0" role="button" aria-label="Binder slot 08 — click to flip, drag to spin"><span class="pcard__no">08</span></article>
+            <article class="pcard" data-preset="./cards/09/" tabindex="0" role="button" aria-label="Binder slot 09 — click to flip, drag to spin"><span class="pcard__no">09</span></article>
           </div>
           <div class="binder__foot">
             <span>The Creator's Binder · Page 01</span>
-            <span class="binder__count">6 / 9 bound</span>
+            <span class="binder__count">9 slots</span>
           </div>
         </div>
       </div>
@@ -382,5 +386,6 @@
   </footer>
 
   <script src="./home.js?v=1" defer></script>
+  <script src="./cards.js?v=1" defer></script>
 </body>
 </html>
