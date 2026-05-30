@@ -430,24 +430,28 @@
     const cardW = (preset.cardSize && preset.cardSize.width) || 280;
     const cardH = (preset.cardSize && preset.cardSize.height) || 380;
 
-    // Build DOM
+    // Build DOM — mirror the Card Studio editor's 3D rig exactly:
+    //   perspective(viewport) → scale(fit slot) → float(idle anim) → rotate(drag/flip) → faces
+    // Keeping the idle float and the drag rotation on SEPARATE nested elements is
+    // what the editor does, so the autonomous float and the drag spin compose.
     host.classList.add('pcard--ready');
     host.style.setProperty('--card-w', cardW);
     host.style.setProperty('--card-h', cardH);
 
-    const viewport = document.createElement('div');
-    viewport.className = 'pcard__viewport';
-    const inner = document.createElement('div');
-    inner.className = 'pcard__inner';
-    const front = document.createElement('div');
-    front.className = 'pcard__face pcard__face--front';
-    const back = document.createElement('div');
-    back.className = 'pcard__face pcard__face--back';
+    const mk = (cls) => { const d = document.createElement('div'); d.className = cls; return d; };
+    const viewport = mk('pcard__viewport');  // perspective
+    const scaleEl  = mk('pcard__scale');     // shrinks the fixed cardW×cardH card into the slot
+    const floatEl  = mk('pcard__float');     // idle float (the editor's cardFloat)
+    const inner    = mk('pcard__inner');     // drag / flip rotation
+    const front    = mk('pcard__face pcard__face--front');
+    const back     = mk('pcard__face pcard__face--back');
     inner.appendChild(front); inner.appendChild(back);
-    viewport.appendChild(inner);
+    floatEl.appendChild(inner);
+    scaleEl.appendChild(floatEl);
+    viewport.appendChild(scaleEl);
 
-    inner.style.width = cardW + 'px';
-    inner.style.height = cardH + 'px';
+    scaleEl.style.width = cardW + 'px';
+    scaleEl.style.height = cardH + 'px';
 
     renderFace(front, preset.frontLayers || [], preset.frontLayerOrder, preset.frontBgColor, cardW, cardH, baseURL);
     renderFace(back, preset.backLayers || [], preset.backLayerOrder, preset.backBgColor || preset.frontBgColor, cardW, cardH, baseURL);
@@ -455,101 +459,85 @@
     // keep any pre-existing slot number badge on top
     host.insertBefore(viewport, host.firstChild);
 
-    fitScale(host, inner, cardW);
-    attachInteractions(host, inner, cardW, cardH);
+    fitScale(host, scaleEl, cardW);
+    attachInteractions(host, scaleEl, floatEl, inner, cardW);
   }
 
-  function fitScale(host, inner, cardW) {
+  function fitScale(host, scaleEl, cardW) {
     const w = host.clientWidth || cardW;
-    const scale = w / cardW;
-    inner.style.setProperty('--pscale', scale.toFixed(4));
+    scaleEl.style.setProperty('--pscale', (w / cardW).toFixed(4));
   }
 
-  /* ---------- 3D interaction ---------- */
-  function attachInteractions(host, inner, cardW, cardH) {
-    let rotX = 0, rotY = 0, flipped = false;
-    let dragging = false, moved = 0, lastX = 0, lastY = 0, downX = 0, downY = 0;
-    const MAX_TILT = 16;
+  /* ---------- 3D interaction — faithful to the Card Studio editor ----------
+     • idle    → the card gently floats (CSS .pcard__float animation)
+     • drag    → free-spin on Y (×0.5), tilt on X (clamped ±25°); shine tracks tilt
+     • release → settle to the nearest face (0° / 180°), shine returns to centre,
+                 float resumes after the snap
+     • dblclick / Enter / Space → flip
+     rotY/rotX live on the inner (rotate) layer; the float lives on its parent,
+     so the autonomous float and the drag spin compose — exactly like the editor.
+     ------------------------------------------------------------------------ */
+  function attachInteractions(host, scaleEl, floatEl, rotEl, cardW) {
+    let rotX = 0, rotY = 0, isFlipped = false, dragging = false, prevX = 0, prevY = 0;
 
-    const apply = (transition) => {
-      inner.style.transition = transition ? 'transform 0.6s cubic-bezier(.22,1,.36,1)' : 'none';
-      inner.style.transform = `scale(var(--pscale,1)) rotateX(${rotX.toFixed(2)}deg) rotateY(${(rotY).toFixed(2)}deg)`;
-      // holo shine vars (read by .img-holo-* / .frame-holo-shift overlays)
+    const setT = () => { rotEl.style.transform = `rotateY(${rotY}deg) rotateX(${rotX}deg)`; };
+    const syncHolo = () => {
       host.style.setProperty('--holo-tx', (rotY * 1.8).toFixed(2) + '%');
       host.style.setProperty('--holo-ty', (rotX * 1.8).toFixed(2) + '%');
     };
 
-    const restY = () => flipped ? 180 : 0;
+    // reduced motion → no float, no drag; static front face
+    if (reduce) { floatEl.style.animation = 'none'; return; }
 
-    if (reduce) { apply(false); return; }
+    const stopFloat  = () => { floatEl.style.animation = 'none'; };
+    const startFloat = () => { floatEl.style.animation = ''; }; // revert to the stylesheet value
 
-    // resting state
-    apply(false);
-
-    if (finePointer) {
-      // hover tilt (only when not dragging)
-      host.addEventListener('pointermove', (e) => {
-        if (dragging || e.pointerType === 'touch') return;
-        const r = host.getBoundingClientRect();
-        const px = (e.clientX - r.left) / r.width;
-        const py = (e.clientY - r.top) / r.height;
-        rotY = restY() + (px - 0.5) * 2 * MAX_TILT;
-        rotX = -(py - 0.5) * 2 * MAX_TILT;
-        apply(false);
-      });
-      host.addEventListener('pointerleave', () => {
-        if (dragging) return;
-        rotX = 0; rotY = restY(); apply(true);
-      });
-    }
-
-    // drag to spin (pointer) + click/tap to flip
     host.addEventListener('pointerdown', (e) => {
-      dragging = true; moved = 0;
-      lastX = downX = e.clientX; lastY = downY = e.clientY;
-      inner.style.transition = 'none';
-      host.setPointerCapture && host.setPointerCapture(e.pointerId);
+      dragging = true; prevX = e.clientX; prevY = e.clientY;
+      rotEl.style.transition = 'none'; stopFloat();
+      if (host.setPointerCapture) { try { host.setPointerCapture(e.pointerId); } catch (_) {} }
     });
     host.addEventListener('pointermove', (e) => {
       if (!dragging) return;
-      const dx = e.clientX - lastX, dy = e.clientY - lastY;
-      moved += Math.abs(dx) + Math.abs(dy);
-      lastX = e.clientX; lastY = e.clientY;
-      if (e.pointerType === 'touch' && moved < 8) return; // let small touches become taps (don't fight scroll)
-      rotY += dx * 0.45;
-      rotX = Math.max(-22, Math.min(22, rotX - dy * 0.30));
-      apply(false);
+      const dx = e.clientX - prevX, dy = e.clientY - prevY;
+      rotY += dx * 0.5;
+      rotX = Math.max(-25, Math.min(25, rotX - dy * 0.3));
+      if (rotY > 180) rotY -= 360;
+      if (rotY < -180) rotY += 360;
+      setT(); syncHolo();
+      prevX = e.clientX; prevY = e.clientY;
     });
-    const endDrag = (e) => {
+    const endDrag = () => {
       if (!dragging) return;
       dragging = false;
-      const totalMove = Math.abs(e.clientX - downX) + Math.abs(e.clientY - downY);
-      if (totalMove < 6) {
-        flipped = !flipped;                 // treat as a click → flip
-        rotX = 0; rotY = restY(); apply(true);
-      } else {
-        // snap to nearest face
-        rotY = Math.round(rotY / 180) * 180;
-        flipped = ((rotY % 360) + 360) % 360 === 180;
-        rotX = 0; apply(true);
-      }
+      rotEl.style.transition = 'transform 0.8s ease-out';
+      rotY = Math.round(rotY / 180) * 180;
+      rotX = 0;
+      isFlipped = ((rotY / 180) % 2 !== 0);
+      setT();
+      host.style.removeProperty('--holo-tx');   // shine settles back to centre
+      host.style.removeProperty('--holo-ty');
+      setTimeout(startFloat, 900);
     };
     host.addEventListener('pointerup', endDrag);
-    host.addEventListener('pointercancel', () => { dragging = false; rotX = 0; rotY = restY(); apply(true); });
+    host.addEventListener('pointercancel', endDrag);
 
-    // keyboard a11y: Enter/Space flips
+    const flip = () => {
+      rotY = isFlipped ? 0 : 180;
+      isFlipped = !isFlipped;
+      rotEl.style.transition = 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+      setT();
+    };
+    host.addEventListener('dblclick', flip);
     host.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        flipped = !flipped; rotX = 0; rotY = restY(); apply(true);
-      }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
     });
 
     // keep scale correct on resize
     let rT;
     window.addEventListener('resize', () => {
       clearTimeout(rT);
-      rT = setTimeout(() => { fitScale(host, inner, cardW); apply(false); }, 150);
+      rT = setTimeout(() => fitScale(host, scaleEl, cardW), 150);
     }, { passive: true });
   }
 

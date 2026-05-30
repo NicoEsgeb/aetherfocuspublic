@@ -405,13 +405,25 @@ em{font-style:normal;color:var(--violet-3)}
   text-shadow:0 1px 4px rgba(0,0,0,.6)}
 
 .pcard__viewport{position:absolute;inset:0;perspective:1100px;perspective-origin:50% 50%}
-.pcard__inner{position:absolute;inset:0;margin:auto;transform-style:preserve-3d;
-  transform-origin:center center;will-change:transform;transform:scale(var(--pscale,1))}
+/* scale layer — shrinks the fixed cardW×cardH card to fit the slot (never animated) */
+.pcard__scale{position:absolute;inset:0;margin:auto;transform-origin:center center;
+  transform:scale(var(--pscale,1));transform-style:preserve-3d}
+/* float layer — the editor's idle "cardFloat": a gentle autonomous bob + yaw */
+.pcard__float{position:relative;width:100%;height:100%;transform-style:preserve-3d;
+  animation:pcard-float 4s ease-in-out infinite alternate}
+/* rotate layer — drag / flip transform is applied here by cards.js */
+.pcard__inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;will-change:transform}
 /* faces — NO overflow:hidden here (it would flatten the 3D layer depth);
    each layer clips itself with its own border-radius instead */
 .pcard__face{position:absolute;inset:0;width:100%;height:100%;
   backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-style:preserve-3d}
 .pcard__face--back{transform:rotateY(180deg)}
+/* idle float — copied from the Card Studio editor's cardFloat keyframes */
+@keyframes pcard-float{
+  0%{transform:translateY(2px) rotateY(6deg) rotateX(0deg)}
+  50%{transform:translateY(-6px) rotateY(6deg) rotateX(1deg)}
+  100%{transform:translateY(2px) rotateY(2deg) rotateX(0deg)}
+}
 
 /* layer engine — ported from the card editor, scoped to .pcard */
 .pcard .card-layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;
