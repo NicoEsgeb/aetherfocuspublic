@@ -132,13 +132,13 @@ em{font-style:normal;color:var(--violet-3)}
 .hero__meta{display:flex;align-items:center;justify-content:flex-start;gap:.9rem;margin-top:1.8rem;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);flex-wrap:wrap}
 .hero__meta i{width:3px;height:3px;border-radius:50%;background:var(--violet);opacity:.6}
 /* hero card fan — real .cardpreset hosts; drag to spin, double-click to flip */
-.hero__cards{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;perspective:1700px;min-height:clamp(280px,42vh,430px)}
+.hero__cards{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:clamp(.6rem,2vw,1.5rem);perspective:1700px;min-height:clamp(280px,42vh,430px)}
 .hero__cards::before{content:"";position:absolute;width:78%;height:62%;left:50%;top:52%;transform:translate(-50%,-50%);
   background:radial-gradient(closest-side,rgba(140,26,242,.42),rgba(92,209,250,.12) 55%,transparent 78%);filter:blur(46px);z-index:-1;opacity:.75}
-.hero__cards .pcard{width:clamp(140px,15.5vw,206px);flex:0 0 auto;transition:transform .6s var(--ease),filter .4s var(--ease)}
-.hero__cards .pcard--fan-l{transform:translateX(15%) rotateY(20deg) scale(.9);z-index:1;filter:brightness(.9)}
-.hero__cards .pcard--fan-c{transform:translateY(-14px) scale(1.02);z-index:3}
-.hero__cards .pcard--fan-r{transform:translateX(-15%) rotateY(-20deg) scale(.9);z-index:2;filter:brightness(.9)}
+.hero__cards .pcard{width:clamp(136px,15vw,200px);flex:0 0 auto;transition:transform .6s var(--ease),filter .4s var(--ease)}
+.hero__cards .pcard--fan-l{transform:rotateY(18deg) scale(.9);z-index:1;filter:brightness(.92)}
+.hero__cards .pcard--fan-c{transform:translateY(-14px) scale(1.03);z-index:3}
+.hero__cards .pcard--fan-r{transform:rotateY(-18deg) scale(.9);z-index:2;filter:brightness(.92)}
 .hero__cards .pcard:hover{z-index:6;filter:brightness(1.06)}
 /* hero tagline + laurels */
 .hero__tagline{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:clamp(.8rem,2.6vw,1.8rem);margin-top:clamp(.5rem,2vh,1.6rem)}
