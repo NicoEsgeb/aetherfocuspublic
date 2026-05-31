@@ -31,7 +31,7 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;600;700&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@400;600;700&family=Oswald:wght@400;600;700&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap">
 
-  <link rel="stylesheet" href="./home.css?v=3">
+  <link rel="stylesheet" href="./home.css?v=4">
 </head>
 <body>
   <!-- fixed atmospheric layers -->
@@ -54,7 +54,6 @@
       <a href="#worlds">Worlds</a>
       <a href="#spheres">Spheres</a>
       <a href="#origin">Origin</a>
-      <a href="#collection">Collection</a>
       <a href="#binder">Binder</a>
       <a href="#premium">Premium</a>
     </nav>
@@ -69,7 +68,6 @@
     <a href="#worlds">Worlds</a>
     <a href="#spheres">Spheres</a>
     <a href="#origin">Origin</a>
-    <a href="#collection">Collection</a>
     <a href="#binder">Binder</a>
     <a href="#premium">Premium</a>
     <a href="#get" class="menu__cta">Download on the Mac App Store</a>
@@ -78,29 +76,57 @@
   <main>
     <!-- ============ HERO ============ -->
     <section class="hero" id="top">
-      <canvas class="hero__orb" id="heroOrb" aria-hidden="true"></canvas>
       <div class="hero__veil" aria-hidden="true"></div>
-      <div class="hero__inner">
-        <p class="eyebrow eyebrow--center">For macOS &nbsp;·&nbsp; A focus sanctuary</p>
-        <h1 class="hero__title">Your focus,<br>made into light.</h1>
-        <p class="hero__lede">
-          NanaiNest is a focus space for macOS — a timer, tasks, notes, and a soundscape you can
-          sculpt. And the time you spend here is never idle: every pulse of focus incubates a
-          primordial egg, until it hatches into a living, audio-reactive sphere — and a
-          holographic card that's&nbsp;yours&nbsp;to&nbsp;keep.
-        </p>
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="#get">Download on the Mac App Store</a>
-          <a class="btn btn--ghost" href="#origin">See how it works</a>
+      <div class="hero__inner hero__inner--split">
+        <div class="hero__copy">
+          <p class="eyebrow">For macOS &nbsp;·&nbsp; A focus sanctuary</p>
+          <h1 class="hero__title">Your focus,<br>made into light.</h1>
+          <p class="hero__lede">
+            NanaiNest is a focus space for macOS — a timer, tasks, notes, and a soundscape you can
+            sculpt. And the time you spend here is never idle: every pulse of focus incubates a
+            primordial egg, until it hatches into a living, audio-reactive sphere — and a
+            holographic card that's&nbsp;yours&nbsp;to&nbsp;keep.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#get">Download on the Mac App Store</a>
+            <a class="btn btn--ghost" href="#origin">See how it works</a>
+          </div>
+          <div class="hero__meta">
+            <span>macOS 13+</span><i></i><span>iOS coming soon</span><i></i><span>No account required</span>
+          </div>
         </div>
-        <div class="hero__meta">
-          <span>macOS 13+</span><i></i><span>iOS coming soon</span><i></i><span>No account required</span>
+        <div class="hero__cards" role="group" aria-label="Collectible cards — drag to spin, double-click to flip">
+          <article class="pcard pcard--fan-l" data-preset="./cards/collection/orbital/" tabindex="0" role="button" aria-label="Orbital — Liquid Gold, Legendary. Click to flip, drag to spin"></article>
+          <article class="pcard pcard--fan-c" data-preset="./cards/collection/vortex/" tabindex="0" role="button" aria-label="Vortex — Aurora Prism, Rare. Click to flip, drag to spin"></article>
+          <article class="pcard pcard--fan-r" data-preset="./cards/collection/bloom/" tabindex="0" role="button" aria-label="Ethereal Bloom — Moonveil, Uncommon. Click to flip, drag to spin"></article>
         </div>
       </div>
-      <a class="hero__scroll" href="#lore" aria-label="Scroll">
-        <span>scroll</span>
-        <svg viewBox="0 0 24 40" width="20" height="34"><rect x="1" y="1" width="22" height="38" rx="11" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.5"/><circle class="hero__scrolldot" cx="12" cy="10" r="3" fill="currentColor"/></svg>
-      </a>
+      <div class="hero__tagline">
+        <svg class="hero__laurel" viewBox="0 0 44 70" width="34" height="54" fill="none" aria-hidden="true">
+          <path d="M37 67 C24 55 19 34 25 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".85"/>
+          <g fill="currentColor" opacity=".68">
+            <ellipse cx="29" cy="56" rx="8" ry="3.3" transform="rotate(-55 29 56)"/>
+            <ellipse cx="25" cy="44" rx="8.4" ry="3.4" transform="rotate(-49 25 44)"/>
+            <ellipse cx="22.5" cy="32" rx="8.2" ry="3.4" transform="rotate(-42 22.5 32)"/>
+            <ellipse cx="22.5" cy="21" rx="7.4" ry="3.1" transform="rotate(-33 22.5 21)"/>
+            <ellipse cx="24" cy="11" rx="6" ry="2.7" transform="rotate(-24 24 11)"/>
+          </g>
+        </svg>
+        <p>
+          <span class="ht-main">Focus beautifully · Collect meaningfully</span>
+          <span class="ht-sub">Designed for mindful creators</span>
+        </p>
+        <svg class="hero__laurel hero__laurel--r" viewBox="0 0 44 70" width="34" height="54" fill="none" aria-hidden="true">
+          <path d="M37 67 C24 55 19 34 25 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".85"/>
+          <g fill="currentColor" opacity=".68">
+            <ellipse cx="29" cy="56" rx="8" ry="3.3" transform="rotate(-55 29 56)"/>
+            <ellipse cx="25" cy="44" rx="8.4" ry="3.4" transform="rotate(-49 25 44)"/>
+            <ellipse cx="22.5" cy="32" rx="8.2" ry="3.4" transform="rotate(-42 22.5 32)"/>
+            <ellipse cx="22.5" cy="21" rx="7.4" ry="3.1" transform="rotate(-33 22.5 21)"/>
+            <ellipse cx="24" cy="11" rx="6" ry="2.7" transform="rotate(-24 24 11)"/>
+          </g>
+        </svg>
+      </div>
     </section>
 
     <!-- ============ LORE INTRO ============ -->
@@ -201,30 +227,6 @@
             <li><b>03</b><div><h4>Hatch</h4><p>The shell cracks. A sphere — and its variant — is revealed.</p></div></li>
           </ul>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ COLLECTION ============ -->
-    <section class="section collection" id="collection">
-      <header class="section__head reveal">
-        <p class="eyebrow">The collection</p>
-        <h2 class="section__title">Light, bound as cards.</h2>
-        <p class="section__lede">
-          What you focus into being is yours. Every hatch rolls a variant — some common, a rare
-          few legendary — and binds it as a holographic card. Tilt one. The aether catches the
-          light.
-        </p>
-      </header>
-      <div class="collection__stage reveal">
-        <article class="pcard" data-preset="./cards/collection/orbital/" tabindex="0" role="button" aria-label="Orbital — Liquid Gold, Legendary. Click to flip, drag to spin"></article>
-        <article class="pcard" data-preset="./cards/collection/vortex/" tabindex="0" role="button" aria-label="Vortex — Aurora Prism, Rare. Click to flip, drag to spin"></article>
-        <article class="pcard" data-preset="./cards/collection/bloom/" tabindex="0" role="button" aria-label="Ethereal Bloom — Moonveil, Uncommon. Click to flip, drag to spin"></article>
-      </div>
-      <div class="rarity-key reveal">
-        <span class="rk rk--c">Common</span>
-        <span class="rk rk--u">Uncommon</span>
-        <span class="rk rk--r">Rare</span>
-        <span class="rk rk--l">Legendary</span>
       </div>
     </section>
 
@@ -376,7 +378,7 @@
       <p class="foot__tag">A living focus sanctuary. Fantasy worldbuilding, meet lo-fi.</p>
     </div>
     <div class="foot__cols">
-      <div><h5>Explore</h5><a href="#worlds">Worlds</a><a href="#spheres">Spheres</a><a href="#collection">Collection</a><a href="#binder">Binder</a></div>
+      <div><h5>Explore</h5><a href="#worlds">Worlds</a><a href="#spheres">Spheres</a><a href="#binder">Binder</a></div>
       <div><h5>Get it</h5><a href="#get">Download</a><a href="#premium">Premium packs</a><a href="#horizon">On the horizon</a></div>
       <div><h5>Help</h5><a href="./support/">Support</a><a href="./privacy/">Privacy</a></div>
     </div>
@@ -386,7 +388,7 @@
     </div>
   </footer>
 
-  <script src="./home.js?v=1" defer></script>
+  <script src="./home.js?v=2" defer></script>
   <script src="./cards.js?v=3" defer></script>
 </body>
 </html>

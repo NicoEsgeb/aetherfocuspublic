@@ -287,7 +287,7 @@
   }
 
   /* ---------- init ---------- */
-  function init() { heroOrb(); aetherWeb(); holoCards(); reveals(); nav(); menu(); }
+  function init() { aetherWeb(); holoCards(); reveals(); nav(); menu(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
