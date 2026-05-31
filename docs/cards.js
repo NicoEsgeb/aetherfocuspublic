@@ -491,20 +491,15 @@
     const stopFloat  = () => { floatEl.style.animation = 'none'; };
     const startFloat = () => { floatEl.style.animation = ''; }; // revert to the stylesheet value
 
+    // Press starts the drag ON the card; move + release are bound to WINDOW so the
+    // drag follows the pointer past the card edges and ends wherever it is released.
+    // (Binding release to the card itself is what let a "release outside" leave the
+    //  card stuck rotating — the up event never reached it. The editor binds to the
+    //  document for the same reason.)
     host.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return; // left button / touch / pen only
       dragging = true; prevX = e.clientX; prevY = e.clientY;
       rotEl.style.transition = 'none'; stopFloat();
-      if (host.setPointerCapture) { try { host.setPointerCapture(e.pointerId); } catch (_) {} }
-    });
-    host.addEventListener('pointermove', (e) => {
-      if (!dragging) return;
-      const dx = e.clientX - prevX, dy = e.clientY - prevY;
-      rotY += dx * 0.5;
-      rotX = Math.max(-25, Math.min(25, rotX - dy * 0.3));
-      if (rotY > 180) rotY -= 360;
-      if (rotY < -180) rotY += 360;
-      setT(); syncHolo();
-      prevX = e.clientX; prevY = e.clientY;
     });
     const endDrag = () => {
       if (!dragging) return;
@@ -518,8 +513,21 @@
       host.style.removeProperty('--holo-ty');
       setTimeout(startFloat, 900);
     };
-    host.addEventListener('pointerup', endDrag);
-    host.addEventListener('pointercancel', endDrag);
+    const onMove = (e) => {
+      if (!dragging) return;
+      if (e.buttons === 0) { endDrag(); return; }  // button already released (off-card / off-window) → never stay stuck
+      const dx = e.clientX - prevX, dy = e.clientY - prevY;
+      rotY += dx * 0.5;
+      rotX = Math.max(-25, Math.min(25, rotX - dy * 0.3));
+      if (rotY > 180) rotY -= 360;
+      if (rotY < -180) rotY += 360;
+      setT(); syncHolo();
+      prevX = e.clientX; prevY = e.clientY;
+    };
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
+    window.addEventListener('blur', endDrag);   // released entirely outside the browser window
 
     const flip = () => {
       rotY = isFlipped ? 0 : 180;

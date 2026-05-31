@@ -404,7 +404,7 @@ em{font-style:normal;color:var(--violet-3)}
   font-family:var(--serif);font-size:.82rem;line-height:1;color:rgba(245,230,211,.45);
   text-shadow:0 1px 4px rgba(0,0,0,.6)}
 
-.pcard__viewport{position:absolute;inset:0;perspective:1100px;perspective-origin:50% 50%}
+.pcard__viewport{position:absolute;inset:0;perspective:1100px;perspective-origin:50% 50%;pointer-events:none}
 /* scale layer — shrinks the fixed cardW×cardH card to fit the slot (never animated) */
 .pcard__scale{position:absolute;inset:0;margin:auto;transform-origin:center center;
   transform:scale(var(--pscale,1));transform-style:preserve-3d}

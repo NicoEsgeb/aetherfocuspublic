@@ -1,0 +1,88 @@
+{
+  "version": 2,
+  "cardSize": { "width": 300, "height": 420 },
+  "frontBgColor": "#0a0a1e",
+  "backBgColor": "#0a0a1e",
+  "frontLayerOrder": ["bg", "scrim", "frame", "rarity", "no", "name", "variant"],
+  "backLayerOrder": ["bgB", "frameB", "orbB", "starB", "brandB", "footB"],
+  "frontLayers": [
+    {
+      "id": "bg", "type": "bg", "depth": 0, "bgCornerRadius": 18,
+      "gradient": "conic-gradient(from 200deg at 50% 46%,#a060ff,#ff6fae,#5cd1fa,#a060ff),radial-gradient(circle at 50% 46%,transparent 40%,#0a0a1e 78%)"
+    },
+    {
+      "id": "scrim", "type": "bg", "depth": 6, "bgCornerRadius": 18,
+      "gradient": "linear-gradient(to top,rgba(5,5,16,.92) 0%,rgba(5,5,16,0) 42%)"
+    },
+    {
+      "id": "frame", "type": "frame", "depth": 4,
+      "frameShape": "rect", "frameX": 50, "frameY": 50, "frameWidth": 100, "frameHeight": 100,
+      "frameBorderWidth": 1, "frameBorderStyle": "solid", "frameBorderColor": "#FFFFFF", "frameBorderOpacity": 0.14,
+      "frameCornerRadius": 18, "frameFillOpacity": 0, "frameBevel": false, "frameShadow": false
+    },
+    {
+      "id": "rarity", "type": "text", "depth": 12,
+      "content": "RARE", "x": 15, "y": 8.5, "width": 20, "textAlign": "center",
+      "fontFamily": "Space Mono", "fontSize": 11, "fontWeight": "700",
+      "color": "#5CD1FA", "letterSpacing": 0.14, "textTransform": "uppercase",
+      "boxEnabled": true, "boxFillStyle": "solid", "boxColor": "#000000", "boxOpacity": 0.35,
+      "boxBorder": true, "boxBorderColor": "#5CD1FA", "boxBorderOpacity": 0.9, "boxBorderWidth": 1,
+      "boxRadius": 30, "boxPaddingX": 10, "boxPaddingY": 5, "boxShadow": false
+    },
+    {
+      "id": "no", "type": "text", "depth": 12,
+      "content": "№ 02", "x": 80, "y": 8.8, "width": 30, "textAlign": "right",
+      "fontFamily": "Space Mono", "fontSize": 11, "fontWeight": "700",
+      "color": "rgba(245,230,211,0.8)", "letterSpacing": 0.1
+    },
+    {
+      "id": "name", "type": "text", "depth": 14,
+      "content": "Vortex", "x": 38, "y": 84, "width": 64, "textAlign": "left",
+      "fontFamily": "Cormorant Garamond", "fontSize": 30, "fontWeight": "600",
+      "color": "#F5E6D3", "letterSpacing": 0.01, "textShadow": true
+    },
+    {
+      "id": "variant", "type": "text", "depth": 12,
+      "content": "AURORA PRISM", "x": 38, "y": 90.5, "width": 64, "textAlign": "left",
+      "fontFamily": "Space Mono", "fontSize": 10, "fontWeight": "700",
+      "color": "rgba(245,230,211,0.55)", "letterSpacing": 0.14, "textTransform": "uppercase"
+    }
+  ],
+  "backLayers": [
+    {
+      "id": "bgB", "type": "bg", "depth": 0, "bgCornerRadius": 18,
+      "gradient": "linear-gradient(165deg,#10204a 0%,#0a0a1e 60%,#1a1336 100%)"
+    },
+    {
+      "id": "frameB", "type": "frame", "depth": 4,
+      "frameShape": "rect", "frameX": 50, "frameY": 50, "frameWidth": 100, "frameHeight": 100,
+      "frameBorderWidth": 1, "frameBorderStyle": "solid", "frameBorderColor": "#FFFFFF", "frameBorderOpacity": 0.14,
+      "frameCornerRadius": 18, "frameFillOpacity": 0, "frameBevel": false, "frameShadow": false
+    },
+    {
+      "id": "orbB", "type": "frame", "depth": 20,
+      "frameShape": "circle", "frameX": 50, "frameY": 45, "frameWidth": 50, "frameHeight": 36,
+      "frameBorderWidth": 3, "frameBorderStyle": "rainbow",
+      "frameFillColor": "#5CD1FA", "frameFillOpacity": 0.06,
+      "frameBevel": true, "frameSparkle": true
+    },
+    {
+      "id": "starB", "type": "text", "depth": 26,
+      "content": "✶", "x": 50, "y": 45, "width": 40, "textAlign": "center",
+      "fontFamily": "Cormorant Garamond", "fontSize": 42, "fontWeight": "500",
+      "color": "#9FE6FF", "textShadow": true
+    },
+    {
+      "id": "brandB", "type": "text", "depth": 16,
+      "content": "NANAINEST", "x": 50, "y": 15, "width": 88, "textAlign": "center",
+      "fontFamily": "Cormorant Garamond", "fontSize": 24, "fontWeight": "600",
+      "color": "#F5E6D3", "letterSpacing": 0.06, "textShadow": true
+    },
+    {
+      "id": "footB", "type": "text", "depth": 8,
+      "content": "AURORA PRISM · RARE", "x": 50, "y": 90, "width": 88, "textAlign": "center",
+      "fontFamily": "Space Mono", "fontSize": 9.5, "fontWeight": "700",
+      "color": "#5CD1FA", "letterSpacing": 0.2, "textTransform": "uppercase"
+    }
+  ]
+}
