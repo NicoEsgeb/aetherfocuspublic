@@ -367,6 +367,20 @@ em{font-style:normal;color:var(--violet-3)}
 .foot__base p{font-size:.78rem;color:var(--muted)}
 .foot__whisper{font-family:var(--serif);font-style:italic;color:var(--brass)!important}
 
+/* ============ ORIGIN — how it works (video flow) ============ */
+.origin__flow{max-width:var(--maxw);margin:clamp(2.5rem,6vw,4.5rem) auto 0;display:flex;flex-direction:column;gap:clamp(3rem,8vw,7rem)}
+.ostep{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.6rem,5vw,4.5rem);align-items:center}
+.ostep:nth-child(even) .ostep__media{order:2}
+.ostep__media{position:relative;display:flex;justify-content:center}
+.ostep__media::before{content:"";position:absolute;width:72%;height:60%;left:50%;top:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,rgba(140,26,242,.5),rgba(92,209,250,.12) 55%,transparent 78%);filter:blur(50px);z-index:-1}
+.ostep__video{width:min(284px,68vw);height:auto;display:block;border-radius:30px;background:#05060f;
+  border:1px solid var(--line);box-shadow:0 34px 90px -28px rgba(140,26,242,.6),inset 0 0 0 1px rgba(255,255,255,.05)}
+.ostep__text{max-width:46ch}
+.ostep__num{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(2.2rem,4.6vw,3.2rem);line-height:1;color:var(--violet-3);opacity:.5}
+.ostep__text h3{font-family:var(--serif);font-weight:300;font-size:clamp(1.55rem,3vw,2.2rem);letter-spacing:-.01em;margin:.5rem 0 .7rem}
+.ostep__text p{color:var(--dim);font-size:1.05rem;line-height:1.78}
+
 /* ============ RESPONSIVE ============ */
 @media (max-width:920px){
   .nav__links,.nav__cta{display:none}
@@ -374,8 +388,10 @@ em{font-style:normal;color:var(--violet-3)}
   .worlds__grid{grid-template-columns:1fr 1fr}
   .world,.world:nth-child(1),.world:nth-child(2){grid-column:span 1}
   .spheres__grid{grid-template-columns:1fr 1fr}
-  .origin__grid,.split{grid-template-columns:1fr}
-  .origin__visual{order:-1}
+  .split{grid-template-columns:1fr}
+  .ostep{grid-template-columns:1fr;gap:1.4rem;text-align:center;justify-items:center}
+  .ostep:nth-child(even) .ostep__media{order:0}
+  .ostep__text{margin:0 auto}
   .focus__grid{grid-template-columns:1fr 1fr}
   .horizon__grid{grid-template-columns:1fr 1fr}
   .plans{grid-template-columns:1fr}

@@ -286,8 +286,25 @@
     m.querySelectorAll('a').forEach(a => a.addEventListener('click', () => set(false)));
   }
 
+  /* ---------- ORIGIN STEP VIDEOS (lazy play on scroll) ---------- */
+  function originVideos() {
+    const vids = [...document.querySelectorAll('.ostep__video')];
+    if (!vids.length || reduce) return; // reduced-motion: posters stay, no autoplay
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        const v = e.target;
+        if (e.isIntersecting) {
+          if (v.paused) { try { v.currentTime = 0; } catch (_) {} const p = v.play(); if (p) p.catch(() => {}); }
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.45 });
+    vids.forEach(v => io.observe(v));
+  }
+
   /* ---------- init ---------- */
-  function init() { aetherWeb(); holoCards(); reveals(); nav(); menu(); }
+  function init() { aetherWeb(); holoCards(); reveals(); nav(); menu(); originVideos(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();

@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>NanaiNest — Focus that becomes a collection</title>
   <meta name="description"
-    content="NanaiNest is a focus sanctuary for macOS — timer, tasks, notes, and a soundscape you can sculpt. Every stretch of focus hatches a primordial egg into a living, audio-reactive sphere and a holographic card to collect.">
+    content="NanaiNest is a focus sanctuary for iOS — timer, tasks, notes, and a soundscape you can sculpt. Every stretch of focus hatches a primordial egg into a living, audio-reactive sphere and a holographic card to collect.">
   <meta name="theme-color" content="#060818">
 
   <!-- Open Graph / social -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="NanaiNest — Focus that becomes a collection">
   <meta property="og:description"
-    content="A focus sanctuary for macOS. Set a timer and work — your focus hatches primordial eggs into audio-reactive spheres and holographic cards to collect.">
+    content="A focus sanctuary for iOS. Set a timer and work — your focus hatches primordial eggs into audio-reactive spheres and holographic cards to collect.">
   <meta property="og:url" content="https://nanainest.com/">
   <meta property="og:image" content="https://nanainest.com/assets/icon.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="NanaiNest — Focus that becomes a collection">
-  <meta name="twitter:description" content="A focus sanctuary for macOS. Your focus hatches audio-reactive spheres and collectible cards.">
+  <meta name="twitter:description" content="A focus sanctuary for iOS. Your focus hatches audio-reactive spheres and collectible cards.">
   <meta name="twitter:image" content="https://nanainest.com/assets/icon.png">
 
   <link rel="icon" href="./assets/icon.png" type="image/png">
@@ -31,7 +31,7 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;600;700&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@400;600;700&family=Oswald:wght@400;600;700&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap">
 
-  <link rel="stylesheet" href="./home.css?v=5">
+  <link rel="stylesheet" href="./home.css?v=6">
 </head>
 <body>
   <!-- fixed atmospheric layers -->
@@ -57,7 +57,7 @@
       <a href="#binder">Binder</a>
       <a href="#premium">Premium</a>
     </nav>
-    <a class="btn btn--ghost nav__cta" href="#get">Download</a>
+    <a class="btn btn--ghost nav__cta" href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download</a>
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -70,7 +70,7 @@
     <a href="#origin">Origin</a>
     <a href="#binder">Binder</a>
     <a href="#premium">Premium</a>
-    <a href="#get" class="menu__cta">Download on the Mac App Store</a>
+    <a href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer" class="menu__cta">Download on iOS (iPhone/iPad)</a>
   </div>
 
   <main>
@@ -198,35 +198,70 @@
       <p class="spheres__foot reveal">Eleven spheres and counting — five free, the rest waiting in the packs.</p>
     </section>
 
-    <!-- ============ ORIGIN / EGGS ============ -->
+    <!-- ============ ORIGIN / HOW IT WORKS ============ -->
     <section class="section origin" id="origin">
-      <div class="origin__grid">
-        <div class="origin__visual reveal">
-          <div class="egg" id="egg">
-            <div class="egg__aura"></div>
-            <div class="egg__body">
-              <span class="egg__crack"></span>
-              <span class="egg__core"></span>
-            </div>
-            <div class="egg__ring"></div>
-            <div class="egg__sparks"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <header class="section__head reveal">
+        <p class="eyebrow">Origin &nbsp;·&nbsp; How it works</p>
+        <h2 class="section__title">How a sphere is born.</h2>
+        <p class="section__lede">
+          Four steps, one quiet loop. Choose an egg, feed it your focus, and watch it hatch into a
+          living sphere — and a card that's yours to keep.
+        </p>
+      </header>
+      <div class="origin__flow">
+
+        <article class="ostep reveal">
+          <div class="ostep__media">
+            <video class="ostep__video" muted loop playsinline preload="none" poster="./origin/01-incubate.jpg" aria-label="An egg pulsing to the music as it incubates">
+              <source src="./origin/01-incubate.mp4" type="video/mp4">
+            </video>
           </div>
-          <p class="origin__hint">hover the egg</p>
-        </div>
-        <div class="origin__copy reveal">
-          <p class="eyebrow">Origin</p>
-          <h2 class="section__title">Every sphere begins as an egg.</h2>
-          <p class="section__lede">
-            Spheres aren't switched on — they're <em>hatched</em>. Focus long enough and the
-            aether inside an egg stirs, pulse by pulse, until the shell gives way and a new form
-            of light wakes. Common or legendary, it's yours to keep.
-          </p>
-          <ul class="origin__steps">
-            <li><b>01</b><div><h4>Incubate</h4><p>Place an egg in the Nest. It listens to your focus.</p></div></li>
-            <li><b>02</b><div><h4>Pulse</h4><p>Every beat of sound feeds the aether within.</p></div></li>
-            <li><b>03</b><div><h4>Hatch</h4><p>The shell cracks. A sphere — and its variant — is revealed.</p></div></li>
-          </ul>
-        </div>
+          <div class="ostep__text">
+            <span class="ostep__num">01</span>
+            <h3>Incubate</h3>
+            <p>Choose an egg and it begins to incubate. Press play — your soundscape feeds it, and the egg pulses to every beat.</p>
+          </div>
+        </article>
+
+        <article class="ostep reveal">
+          <div class="ostep__media">
+            <video class="ostep__video" muted playsinline preload="none" poster="./origin/02-hatch.jpg" aria-label="An egg hatching into a glowing audio-reactive sphere">
+              <source src="./origin/02-hatch.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="ostep__text">
+            <span class="ostep__num">02</span>
+            <h3>Hatch</h3>
+            <p>Hold your focus and the shell gives way — your egg hatches into living, audio-reactive linked energy. Good luck with your hatch!</p>
+          </div>
+        </article>
+
+        <article class="ostep reveal">
+          <div class="ostep__media">
+            <video class="ostep__video" muted playsinline preload="none" poster="./origin/03-forge.jpg" aria-label="A 3D holographic card forming, then flipping">
+              <source src="./origin/03-forge.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="ostep__text">
+            <span class="ostep__num">03</span>
+            <h3>Forge</h3>
+            <p>Every hatch forges a one-of-a-kind 3D holographic card. Watch it take shape, give it a flip, and slot it into your Collection Binder.</p>
+          </div>
+        </article>
+
+        <article class="ostep reveal">
+          <div class="ostep__media">
+            <video class="ostep__video" muted loop playsinline preload="none" poster="./origin/04-focus.jpg" aria-label="The hatched sphere pulsing during a focus session">
+              <source src="./origin/04-focus.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="ostep__text">
+            <span class="ostep__num">04</span>
+            <h3>Focus</h3>
+            <p>Now set it loose. Your new sphere becomes the centerpiece of every focus session — completely yours to keep.</p>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -315,7 +350,7 @@
           <h3>The Nest</h3>
           <p class="plan__price">Free</p>
           <ul><li>5 audio-reactive spheres</li><li>5 atmospheres &amp; the ambient mixer</li><li>Timer, notes &amp; tasks</li><li>Hatch &amp; collect eggs</li></ul>
-          <a class="btn btn--primary plan__cta" href="#get">Download</a>
+          <a class="btn btn--primary plan__cta" href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download</a>
         </article>
         <article class="plan plan--feature reveal">
           <span class="plan__flag">Premium Packs</span>
@@ -362,9 +397,9 @@
     <section class="get" id="get">
       <div class="get__inner reveal">
         <h2>Light a world.<br>Begin in the Nest.</h2>
-        <p>Free on macOS. No account required to start — sign in only when you want to keep your collection in the cloud.</p>
+        <p>Free on iOS. No account required to start — sign in only when you want to keep your collection in the cloud.</p>
         <div class="get__cta">
-          <a class="btn btn--primary btn--lg" href="#">Download on the Mac App Store</a>
+          <a class="btn btn--primary btn--lg" href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download on iOS (iPhone/iPad)</a>
           <a class="btn btn--ghost btn--lg" href="./support/">Questions? Talk to us</a>
         </div>
       </div>
@@ -379,7 +414,7 @@
     </div>
     <div class="foot__cols">
       <div><h5>Explore</h5><a href="#worlds">Worlds</a><a href="#spheres">Spheres</a><a href="#binder">Binder</a></div>
-      <div><h5>Get it</h5><a href="#get">Download</a><a href="#premium">Premium packs</a><a href="#horizon">On the horizon</a></div>
+      <div><h5>Get it</h5><a href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download</a><a href="#premium">Premium packs</a><a href="#horizon">On the horizon</a></div>
       <div><h5>Help</h5><a href="./support/">Support</a><a href="./privacy/">Privacy</a></div>
     </div>
     <div class="foot__base">
@@ -388,7 +423,7 @@
     </div>
   </footer>
 
-  <script src="./home.js?v=2" defer></script>
+  <script src="./home.js?v=3" defer></script>
   <script src="./cards.js?v=3" defer></script>
 </body>
 </html>
