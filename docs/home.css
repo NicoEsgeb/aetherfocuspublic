@@ -180,7 +180,8 @@ em{font-style:normal;color:var(--violet-3)}
 .spheres__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:.5rem}
 .orb-card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(13,18,48,.7),rgba(8,10,26,.7));backdrop-filter:blur(6px);overflow:hidden;transition:transform .5s var(--ease),border-color .5s,box-shadow .5s}
 .orb-card:hover{transform:translateY(-6px);border-color:rgba(191,133,255,.4);box-shadow:0 24px 60px -28px rgba(140,26,242,.8)}
-.orb-card__viz{height:170px;position:relative;background:radial-gradient(circle at 50% 50%,rgba(8,10,26,0),#06081a 72%)}
+.orb-card__viz{height:170px;position:relative;background:radial-gradient(circle at 50% 50%,rgba(8,10,26,0),#06081a 72%);overflow:hidden}
+.orb-card__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .orb-card__viz::before,.orb-card__viz::after{content:"";position:absolute;inset:0}
 .orb-card__tag{display:flex;align-items:center;justify-content:space-between;padding:.95rem 1.2rem;border-top:1px solid var(--line-soft)}
 .orb-card__tag span{font-family:var(--serif);font-size:1.18rem}
