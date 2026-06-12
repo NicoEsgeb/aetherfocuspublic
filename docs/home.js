@@ -286,9 +286,9 @@
     m.querySelectorAll('a').forEach(a => a.addEventListener('click', () => set(false)));
   }
 
-  /* ---------- ORIGIN STEP VIDEOS (lazy play on scroll) ---------- */
+  /* ---------- LAZY VIDEOS (origin steps + lore pairs): play on scroll ---------- */
   function originVideos() {
-    const vids = [...document.querySelectorAll('.ostep__video')];
+    const vids = [...document.querySelectorAll('.ostep__video, .lore__video')];
     if (!vids.length || reduce) return; // reduced-motion: posters stay, no autoplay
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
