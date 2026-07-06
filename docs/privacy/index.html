@@ -2,128 +2,184 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>NanaiNest — Privacy Policy</title>
-  <meta
-    name="description"
-    content="Privacy Policy for NanaiNest. We do not collect, store, or share any personal data."
-  >
-  <link rel="stylesheet" href="../styles.css?v=3">
+  <meta name="description"
+    content="Privacy Policy for NanaiNest. What we collect when you create an account, how it's used to sync your collection, and how to delete your data.">
+  <meta name="theme-color" content="#050714">
+
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap">
+
+  <link rel="stylesheet" href="../home.css?v=6">
+  <link rel="stylesheet" href="../pages.css?v=1">
 </head>
 <body>
-  <div class="ambient-shell">
-    <div class="orb orb-one"></div>
-    <div class="orb orb-two"></div>
-    <div class="orb orb-three"></div>
-
-    <main class="page">
-      <nav class="topbar" aria-label="Primary">
-        <a class="brand" href="../">NanaiNest</a>
-        <div class="nav-links">
-          <a href="../">Home</a>
-          <a href="../support/">Support</a>
-        </div>
-      </nav>
-
-      <section class="hero">
-        <p class="eyebrow">Privacy Policy</p>
-        <h1>Your data stays yours.</h1>
-        <p class="lede">
-          NanaiNest is built with privacy at its core. We do not collect,
-          store, or transmit any personal data.
-        </p>
-        <p class="meta-line">Effective April 6, 2026</p>
-      </section>
-
-      <section class="feature-grid">
-        <article class="card">
-          <h2>No data collection</h2>
-          <p>
-            NanaiNest does not collect analytics, usage data, crash reports,
-            or any personally identifiable information. There are no accounts,
-            no sign-ups, and no tracking of any kind.
-          </p>
-        </article>
-
-        <article class="card">
-          <h2>Local storage only</h2>
-          <p>
-            All preferences, notes, tasks, and settings are stored locally
-            on your device using macOS UserDefaults. This data never leaves
-            your machine and is not accessible to us or any third party.
-          </p>
-        </article>
-
-        <article class="card">
-          <h2>Microphone access</h2>
-          <p>
-            NanaiNest may request microphone permission to drive audio-reactive
-            visuals. Input is processed in real time on your device. No audio
-            is recorded, stored, or transmitted. You can deny this permission
-            and the app functions normally.
-          </p>
-        </article>
-
-        <article class="card">
-          <h2>System audio access</h2>
-          <p>
-            NanaiNest may request Screen Recording permission to read system
-            audio. This lets visual spheres react to audio from other apps.
-            No screen content is captured. The audio stream is processed
-            locally and is never stored or transmitted.
-          </p>
-        </article>
-
-        <article class="card">
-          <h2>In-app purchases</h2>
-          <p>
-            Purchases are handled entirely by Apple via StoreKit. We do not
-            receive, store, or have access to your payment information,
-            Apple ID, or transaction details.
-          </p>
-        </article>
-
-        <article class="card">
-          <h2>No third-party services</h2>
-          <p>
-            NanaiNest does not use any third-party analytics, advertising,
-            crash reporting, or tracking. The app is built entirely with
-            Apple's native frameworks.
-          </p>
-        </article>
-
-        <article class="card">
-          <h2>Children's privacy</h2>
-          <p>
-            Since NanaiNest does not collect data from any user, no special
-            provisions for children under 13 are necessary.
-          </p>
-        </article>
-
-        <article class="card">
-          <h2>Changes to this policy</h2>
-          <p>
-            Updates will be posted on this page with a revised effective date.
-            We encourage you to check back periodically.
-          </p>
-        </article>
-      </section>
-
-      <section class="info-strip">
-        <div>
-          <h2>Privacy questions?</h2>
-        </div>
-        <a class="button primary" href="mailto:nicopenair@gmail.com">Email us</a>
-      </section>
-
-      <footer class="site-footer">
-        <p>&copy; 2026 NanaiNest</p>
-        <div class="footer-links">
-          <a href="../">Home</a>
-          <a href="../support/">Support</a>
-        </div>
-      </footer>
-    </main>
+  <!-- atmospheric layers (shared with homepage) -->
+  <div class="nebula" aria-hidden="true">
+    <span class="neb neb-1"></span>
+    <span class="neb neb-2"></span>
+    <span class="neb neb-3"></span>
+    <span class="neb neb-4"></span>
   </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- nav -->
+  <header class="subnav">
+    <a class="subnav__brand" href="../" aria-label="NanaiNest home">
+      <img src="../assets/icon.png" alt="" width="30" height="30">
+      <span>NanaiNest</span>
+    </a>
+    <nav class="subnav__links" aria-label="Primary">
+      <a class="subnav__hide" href="../">Home</a>
+      <a href="../support/">Support</a>
+      <a class="btn btn--ghost" href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download</a>
+    </nav>
+  </header>
+
+  <main class="doc">
+    <header class="doc__hero">
+      <p class="eyebrow">Privacy Policy</p>
+      <h1 class="doc__title">Your data stays yours.</h1>
+      <p class="doc__lede">
+        NanaiNest is built to collect as little as possible. You can use the whole
+        app as a guest without an account. If you choose to sign in, we store only
+        what's needed to keep your collection safe and synced across your devices —
+        never for advertising, and never sold.
+      </p>
+      <p class="doc__meta">Effective July 6, 2026</p>
+    </header>
+
+    <section class="doc__block">
+      <h2><span class="num">01</span>Using NanaiNest without an account</h2>
+      <p>
+        You can open NanaiNest and use it as a guest — soundscapes, spheres, the timer,
+        notes, and tasks all work with no sign-up. In guest mode we do not collect any
+        personal information, and your settings, notes, and tasks are stored only on your device.
+      </p>
+    </section>
+
+    <section class="doc__block">
+      <h2><span class="num">02</span>What we collect when you sign in</h2>
+      <p>
+        Creating an account (Sign in with Apple, or with an email address) lets your eggs,
+        hatched spheres, and card collection sync to the cloud. To do that, we collect and store:
+      </p>
+      <ul>
+        <li><strong>Account details</strong> — your email address and display name, used to create and secure your account and to send account emails such as verification and password resets.</li>
+        <li><strong>An account identifier</strong> — a unique ID that links your saved data to your account.</li>
+        <li><strong>Your collection</strong> — your eggs, hatched spheres, cards, progress, and referral code, so they're preserved and synced across your devices.</li>
+      </ul>
+      <p>
+        This information is linked to your identity and is used only to run the app's features.
+        It is <strong>never</strong> used to track you across other apps or websites.
+      </p>
+    </section>
+
+    <section class="doc__block">
+      <h2><span class="num">03</span>What we don't collect</h2>
+      <p>
+        No advertising identifiers, no location, no contacts, no health data, and no browsing
+        history. NanaiNest contains no third-party advertising or analytics SDKs and does not
+        track your activity across other apps or websites.
+      </p>
+    </section>
+
+    <section class="doc__block">
+      <h2><span class="num">04</span>Microphone</h2>
+      <p>
+        NanaiNest can optionally use your microphone so the visual spheres react to live sound.
+        Audio is processed in real time on your device — nothing is recorded, stored, or transmitted.
+        You can deny microphone access and the app works normally.
+      </p>
+    </section>
+
+    <section class="doc__block">
+      <h2><span class="num">05</span>On-device data</h2>
+      <p>
+        Your notes, tasks, timer settings, and app preferences are stored locally on your device.
+        They are not uploaded to our servers.
+      </p>
+    </section>
+
+    <section class="doc__block">
+      <h2><span class="num">06</span>Service providers</h2>
+      <p>
+        We use a small number of trusted providers purely to run the app's account features. They
+        process data on our behalf and are not permitted to use it for their own purposes:
+      </p>
+      <ul>
+        <li><strong>Google Firebase</strong> — authentication, cloud database, and secure functions that store and sync your account and collection. See <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase's privacy information</a>.</li>
+        <li><strong>Resend</strong> — delivers account emails such as verification and password-reset messages. See <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Resend's privacy policy</a>.</li>
+      </ul>
+      <p>We do not sell your personal data, and we do not share it for advertising.</p>
+    </section>
+
+    <section class="doc__block">
+      <h2><span class="num">07</span>Deleting your account and data</h2>
+      <p>
+        You're in control. Open the Account panel and tap <strong>Delete Account</strong> at the
+        bottom. This permanently removes your account and its associated data — your profile and
+        your synced collection — from our systems. The action can't be undone. You can also email
+        us and we'll help you delete your data.
+      </p>
+    </section>
+
+    <section class="doc__block">
+      <h2><span class="num">08</span>Your rights</h2>
+      <p>
+        Depending on where you live, you may have the right to access, correct, or delete the
+        personal data we hold about you, or to request a copy of it. To make a request, email
+        <a href="mailto:nico.esg.rey@gmail.com">nico.esg.rey@gmail.com</a> and we'll respond promptly.
+      </p>
+    </section>
+
+    <section class="doc__block">
+      <h2><span class="num">09</span>Children's privacy</h2>
+      <p>
+        NanaiNest is not directed at children under 13, and we do not knowingly collect personal
+        data from them. If you believe a child has provided us with personal data, contact us and
+        we'll delete it.
+      </p>
+    </section>
+
+    <section class="doc__block">
+      <h2><span class="num">10</span>Changes to this policy</h2>
+      <p>
+        If this policy changes, we'll post the updated version on this page with a new effective
+        date. Significant changes will be highlighted where appropriate.
+      </p>
+    </section>
+
+    <div class="doc__cta">
+      <div>
+        <h2>Privacy questions?</h2>
+        <p>We're happy to explain anything here.</p>
+      </div>
+      <a class="btn btn--primary" href="mailto:nico.esg.rey@gmail.com">Email us</a>
+    </div>
+  </main>
+
+  <!-- footer (shared identity) -->
+  <footer class="foot">
+    <div class="foot__top">
+      <a class="foot__brand" href="../"><img src="../assets/icon.png" alt="" width="26" height="26"><span>NanaiNest</span></a>
+      <p class="foot__tag">A living focus sanctuary. Fantasy worldbuilding, meet lo-fi.</p>
+    </div>
+    <div class="foot__cols">
+      <div><h5>Explore</h5><a href="../#spheres">Spheres</a><a href="../#binder">Binder</a></div>
+      <div><h5>Get it</h5><a href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download</a><a href="../#origin">How it works</a></div>
+      <div><h5>Help</h5><a href="../support/">Support</a><a href="../privacy/">Privacy</a></div>
+    </div>
+    <div class="foot__base">
+      <p>&copy; 2026 NanaiNest</p>
+      <p class="foot__whisper">Every sphere begins as an egg.</p>
+    </div>
+  </footer>
 </body>
 </html>

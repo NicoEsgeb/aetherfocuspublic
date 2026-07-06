@@ -2,137 +2,135 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>NanaiNest — Support</title>
-  <meta
-    name="description"
-    content="Get help with NanaiNest. Contact support, report bugs, and find answers to common questions."
-  >
-  <link rel="stylesheet" href="../styles.css?v=3">
+  <meta name="description"
+    content="Get help with NanaiNest. Contact support, report a bug, manage your account, and find answers to common questions.">
+  <meta name="theme-color" content="#050714">
+
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap">
+
+  <link rel="stylesheet" href="../home.css?v=6">
+  <link rel="stylesheet" href="../pages.css?v=1">
 </head>
 <body>
-  <div class="ambient-shell">
-    <div class="orb orb-one"></div>
-    <div class="orb orb-two"></div>
-    <div class="orb orb-three"></div>
-
-    <main class="page">
-      <nav class="topbar" aria-label="Primary">
-        <a class="brand" href="../">NanaiNest</a>
-        <div class="nav-links">
-          <a href="../">Home</a>
-          <a href="../privacy/">Privacy</a>
-        </div>
-      </nav>
-
-      <section class="hero">
-        <p class="eyebrow">Support</p>
-        <h1>We've got you.</h1>
-        <p class="lede">
-          Something broken, or have an idea that would make NanaiNest
-          better? Drop us a line — we read every message.
-        </p>
-      </section>
-
-      <section class="feature-grid support-grid">
-        <article class="card">
-          <p class="eyebrow">Contact</p>
-          <h2>Reach out</h2>
-          <ul class="detail-list">
-            <li>
-              <span>Email</span>
-              <a href="mailto:nicopenair@gmail.com">nicopenair@gmail.com</a>
-            </li>
-            <li>
-              <span>Developer</span>
-              <strong>Nico Esgeb</strong>
-            </li>
-            <li>
-              <span>Location</span>
-              <strong>London, United Kingdom</strong>
-            </li>
-            <li>
-              <span>Response time</span>
-              <strong>Within 2 – 3 business days</strong>
-            </li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <p class="eyebrow">Bug reports</p>
-          <h2>What to include</h2>
-          <ul class="detail-list">
-            <li>
-              <span>1</span>
-              <strong>macOS version</strong> (e.g. macOS 15.2)
-            </li>
-            <li>
-              <span>2</span>
-              <strong>App version</strong> (shown in the app menu)
-            </li>
-            <li>
-              <span>3</span>
-              <strong>What happened</strong> — steps to reproduce and what you expected
-            </li>
-          </ul>
-        </article>
-      </section>
-
-      <section class="feature-grid">
-        <article class="card">
-          <p class="eyebrow">FAQ</p>
-          <h2>Permissions</h2>
-          <div class="faq-item">
-            <h3>Why does NanaiNest need microphone access?</h3>
-            <p>
-              The microphone drives the visual spheres — they react to live
-              sound like claps, voice, or nearby music. No audio is recorded
-              or stored. You can deny this and the app works fine without it.
-            </p>
-          </div>
-          <div class="faq-item">
-            <h3>Why does it ask for screen recording / system audio?</h3>
-            <p>
-              This lets the spheres react to audio from other apps. macOS
-              bundles this under Screen Recording. NanaiNest does not
-              capture your screen — it only reads the audio stream.
-            </p>
-          </div>
-        </article>
-
-        <article class="card">
-          <p class="eyebrow">FAQ</p>
-          <h2>General</h2>
-          <div class="faq-item">
-            <h3>Is NanaiNest on iOS?</h3>
-            <p>Not yet — macOS only for now. iOS is planned.</p>
-          </div>
-          <div class="faq-item">
-            <h3>How do I restore purchases?</h3>
-            <p>
-              Premium content is tied to your Apple ID and restores
-              automatically. If it doesn't appear, check you're signed
-              in with the same Apple ID, then restart the app.
-            </p>
-          </div>
-          <div class="faq-item">
-            <h3>Does it work offline?</h3>
-            <p>
-              Yes. All music, sounds, and visuals are bundled in the app.
-              No internet needed after download.
-            </p>
-          </div>
-        </article>
-      </section>
-
-      <footer class="site-footer">
-        <p>&copy; 2026 NanaiNest</p>
-        <div class="footer-links">
-          <a href="../">Home</a>
-          <a href="../privacy/">Privacy</a>
-        </div>
-      </footer>
-    </main>
+  <!-- atmospheric layers (shared with homepage) -->
+  <div class="nebula" aria-hidden="true">
+    <span class="neb neb-1"></span>
+    <span class="neb neb-2"></span>
+    <span class="neb neb-3"></span>
+    <span class="neb neb-4"></span>
   </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- nav -->
+  <header class="subnav">
+    <a class="subnav__brand" href="../" aria-label="NanaiNest home">
+      <img src="../assets/icon.png" alt="" width="30" height="30">
+      <span>NanaiNest</span>
+    </a>
+    <nav class="subnav__links" aria-label="Primary">
+      <a class="subnav__hide" href="../">Home</a>
+      <a href="../privacy/">Privacy</a>
+      <a class="btn btn--ghost" href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download</a>
+    </nav>
+  </header>
+
+  <main class="doc">
+    <header class="doc__hero">
+      <p class="eyebrow">Support</p>
+      <h1 class="doc__title">We've got you.</h1>
+      <p class="doc__lede">
+        Something not working, or an idea that would make NanaiNest better?
+        Send a message — every one is read by the person who makes the app.
+      </p>
+    </header>
+
+    <div class="doc__grid">
+      <section class="doc__block">
+        <p class="eyebrow">Contact</p>
+        <h2>Reach out</h2>
+        <ul class="dl">
+          <li><span class="k">Email</span><span class="v"><a href="mailto:nico.esg.rey@gmail.com">nico.esg.rey@gmail.com</a></span></li>
+          <li><span class="k">Maker</span><span class="v">Nico Esgeb</span></li>
+          <li><span class="k">Based in</span><span class="v">London, United Kingdom</span></li>
+          <li><span class="k">Response time</span><span class="v">Within 2–3 days</span></li>
+        </ul>
+      </section>
+
+      <section class="doc__block">
+        <p class="eyebrow">Bug reports</p>
+        <h2>What to include</h2>
+        <ul>
+          <li><strong>Your device</strong> — e.g. iPhone 14, iPad Air</li>
+          <li><strong>iOS version</strong> — e.g. iOS 17.4 (Settings → General → About)</li>
+          <li><strong>App version</strong> — shown at the bottom of the Account panel</li>
+          <li><strong>What happened</strong> — the steps you took and what you expected</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="doc__block">
+      <p class="eyebrow">FAQ</p>
+      <h2>Common questions</h2>
+      <div class="faq">
+        <details open>
+          <summary>Is NanaiNest free?</summary>
+          <p>Yes — completely free. No ads, no subscriptions, and no in-app purchases. Focus, hatch eggs, and build your collection at no cost.</p>
+        </details>
+        <details>
+          <summary>Do I need an account?</summary>
+          <p>No. You can use NanaiNest as a guest with no sign-up. Creating an account (Sign in with Apple or email) simply saves your eggs, spheres, and card collection to the cloud so they sync across your devices and are never lost.</p>
+        </details>
+        <details>
+          <summary>Why does NanaiNest ask for the microphone?</summary>
+          <p>Microphone access is optional. It lets the on-screen spheres react to live sound around you — claps, voice, nearby music. Audio is processed in real time on your device and is never recorded, stored, or sent anywhere. Deny it and the app works normally.</p>
+        </details>
+        <details>
+          <summary>How do I delete my account?</summary>
+          <p>Open the Account panel and tap <strong>Delete Account</strong> at the bottom. After a short confirmation, your account and all associated data are permanently removed from our systems. This can't be undone.</p>
+        </details>
+        <details>
+          <summary>Does it work offline?</summary>
+          <p>Yes for the essentials — the soundscape, timer, notes, tasks, and your spheres all run offline. Signing in and syncing your collection to the cloud needs an internet connection.</p>
+        </details>
+        <details>
+          <summary>Which devices are supported?</summary>
+          <p>NanaiNest runs on iPhone and iPad with iOS 16 or later.</p>
+        </details>
+      </div>
+    </section>
+
+    <div class="doc__cta">
+      <div>
+        <h2>Still stuck?</h2>
+        <p>Drop a line and we'll help you out.</p>
+      </div>
+      <a class="btn btn--primary" href="mailto:nico.esg.rey@gmail.com">Email support</a>
+    </div>
+  </main>
+
+  <!-- footer (shared identity) -->
+  <footer class="foot">
+    <div class="foot__top">
+      <a class="foot__brand" href="../"><img src="../assets/icon.png" alt="" width="26" height="26"><span>NanaiNest</span></a>
+      <p class="foot__tag">A living focus sanctuary. Fantasy worldbuilding, meet lo-fi.</p>
+    </div>
+    <div class="foot__cols">
+      <div><h5>Explore</h5><a href="../#spheres">Spheres</a><a href="../#binder">Binder</a></div>
+      <div><h5>Get it</h5><a href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download</a><a href="../#origin">How it works</a></div>
+      <div><h5>Help</h5><a href="../support/">Support</a><a href="../privacy/">Privacy</a></div>
+    </div>
+    <div class="foot__base">
+      <p>&copy; 2026 NanaiNest</p>
+      <p class="foot__whisper">Every sphere begins as an egg.</p>
+    </div>
+  </footer>
 </body>
 </html>
