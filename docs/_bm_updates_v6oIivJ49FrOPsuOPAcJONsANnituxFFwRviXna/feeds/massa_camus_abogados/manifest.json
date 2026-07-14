@@ -4,19 +4,19 @@
     "client_id": "massa_camus_abogados",
     "target_os": "windows",
     "channel": "staging",
-    "generated_at": "2026-07-14T03:55:43+00:00",
+    "generated_at": "2026-07-14T12:30:57+00:00",
     "dev_build": false,
     "core": {
-      "version": "61037cb-61037cb1b559",
-      "core_ref": "61037cb",
-      "core_commit": "61037cb1b559",
+      "version": "productization-e0a3a2fb4ea8",
+      "core_ref": "productization",
+      "core_commit": "e0a3a2fb4ea8",
       "kind": "frozen-shell",
-      "artifact": "core-windows-61037cb-61037cb1b559.zip",
-      "sha256": "051191a4b0c64ff959e5b2590e8a2561aa2e6a4caf784cf6b99f8696a7b11aa2",
-      "size_bytes": 209439681
+      "artifact": "core-windows-productization-e0a3a2fb4ea8.zip",
+      "sha256": "3aff6d5491c96d299debb560540fd3b5e1c4ab43d4b2005e00d19a6e6f0770c0",
+      "size_bytes": 209456529
     },
     "bot_pack": {
-      "version": "7eb95df0c6c1-dirty-a04a9554e4dd",
+      "version": "0d4caa15dd2e-f33715e8328d",
       "bots": [
         "N03_buscar-tribunal-extension",
         "clean01_ingreso_demandas",
@@ -26,10 +26,10 @@
         "rpa01_new_ingreso-escritos",
         "rpa06_new"
       ],
-      "artifact": "botpack-windows-massa_camus_abogados-7eb95df0c6c1-dirty-a04a9554e4dd.zip",
-      "sha256": "122f5f70066e7305b63300788ecadfaecb04d38e8189c7d0a91766e3afc0906c",
-      "size_bytes": 117475
+      "artifact": "botpack-windows-massa_camus_abogados-0d4caa15dd2e-f33715e8328d.zip",
+      "sha256": "eb1bd73e79fa30ea1329f279e38b543a694aff71fcec99a01ed3847eae3139aa",
+      "size_bytes": 2633249
     }
   },
-  "signature": "gCp/gpKbcmrX8p6VDYcvmZQcTJLmxYEAYjGyh/XLS5Ef2wn9IZxJqiZVcdsD/vtm6zN2mX3LGw6HsfMkOiyKDQ=="
+  "signature": "usmGus/ZiZN2SceHY0cUqYyz0qeA440LMqJ4KQfkupvTfyO00tso9ru1g3Sz31iOwiq/7xdYC7W8pHeUHJBlDQ=="
 }
