@@ -4,7 +4,7 @@
     "client_id": "massa_camus_abogados",
     "target_os": "windows",
     "channel": "staging",
-    "generated_at": "2026-08-10T18:28:44+00:00",
+    "generated_at": "2026-08-12T20:14:32+00:00",
     "dev_build": false,
     "core": {
       "version": "productization-e0a3a2fb4ea8",
@@ -16,7 +16,7 @@
       "size_bytes": 209456529
     },
     "bot_pack": {
-      "version": "81b6e1db3f66-dirty-94e7b0b9ceed",
+      "version": "81b6e1db3f66-dirty-c62db28321c9",
       "bots": [
         "N03_buscar-tribunal-extension",
         "clean01_ingreso_demandas",
@@ -24,21 +24,14 @@
         "clean03_extraer-datos-pagares",
         "clean04_generar-demandas",
         "clean05_emerix-extension",
+        "clean06_crear-planilla-ingreso-demandas",
         "rpa01_new_ingreso-escritos",
-        "rpa06_new",
-        "clean02_separar_archivos",
-        "clean03_extraer_datos_pagares",
-        "clean04_generar_demandas",
-        "n03_buscar_tribunal_extension",
-        "rpa01_new_ingreso_escritos",
-        "clean05_emerix_extension",
-        "clean06_emerix_extension",
-        "clean06_crear_planilla_ingreso_demandas"
+        "rpa06_new"
       ],
-      "artifact": "botpack-windows-massa_camus_abogados-81b6e1db3f66-dirty-94e7b0b9ceed.zip",
-      "sha256": "23b6d5506f0d7da19c0f71248a0f8c982471d1730bff3a3db85c795cb5d2014d",
-      "size_bytes": 172600
+      "artifact": "botpack-windows-massa_camus_abogados-81b6e1db3f66-dirty-c62db28321c9.zip",
+      "sha256": "b28bf0f8276822abf98f25d34485bb89c46cb00b4df4dd4078dedebc70291fd6",
+      "size_bytes": 195922
     }
   },
-  "signature": "uUoY75QKTbBlrS9iso+eQ6bwsedj6boCIMiArD74vPtht1vil+0Z8Ty8pCE9F+BktNNJ1SqNVE2EAI+vVQWGDg=="
+  "signature": "7yuQH5M5ptWr1PFI4uB+NlLrZ19IdRZW2XliAuTUP4i37V6XZ5u+P8KcNwBaSzLmSkfAIhPeErDio1BTtxOxBw=="
 }
