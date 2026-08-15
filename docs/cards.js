@@ -400,7 +400,7 @@
      CardInstance — fetch a preset, build both faces, wire 3D.
      ============================================================ */
   async function fetchPreset(url) {
-    const res = await fetch(url, { cache: 'no-cache' });
+    const res = await fetch(url);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     return res.json();
   }

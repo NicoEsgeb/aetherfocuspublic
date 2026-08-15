@@ -31,7 +31,7 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;600;700&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@400;600;700&family=Oswald:wght@400;600;700&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap">
 
-  <link rel="stylesheet" href="./home.css?v=8">
+  <link rel="stylesheet" href="./home.css?v=9">
 </head>
 <body>
   <!-- fixed atmospheric layers -->
@@ -106,10 +106,18 @@
             <span>iOS 16+</span><i></i><span>iPhone &amp; iPad</span><i></i><span>No account required</span>
           </div>
         </div>
-        <div class="hero__cards" role="group" aria-label="Collectible cards — drag to spin, double-click to flip">
-          <article class="pcard pcard--fan-l" data-preset="./cards/collection/orbital/" tabindex="0" role="button" aria-label="Orbital — Liquid Gold, Legendary. Click to flip, drag to spin"></article>
-          <article class="pcard pcard--fan-c" data-preset="./cards/collection/vortex/" tabindex="0" role="button" aria-label="Vortex — Aurora Prism, Rare. Click to flip, drag to spin"></article>
-          <article class="pcard pcard--fan-r" data-preset="./cards/collection/bloom/" tabindex="0" role="button" aria-label="Ethereal Bloom — Moonveil, Uncommon. Click to flip, drag to spin"></article>
+        <div class="hero__cards">
+          <article class="pcard pcard--hero" data-preset="./cards/collection/vortex/" tabindex="0" role="button" aria-label="Vortex — Aurora Prism, Rare. Click to flip, drag to spin"></article>
+          <div class="hero__hook" aria-hidden="true">
+            <span class="hero__hook-cell">
+              <video muted loop autoplay playsinline preload="metadata"><source src="./lore/01-energy.mp4" type="video/mp4"></video>
+            </span>
+            <span class="hero__hook-arrow">→</span>
+            <span class="hero__hook-cell">
+              <video muted loop autoplay playsinline preload="metadata"><source src="./lore/01-card.mp4" type="video/mp4"></video>
+            </span>
+          </div>
+          <p class="hero__hook-caption">Every pulse of sound becomes a spark — then a card to keep.</p>
         </div>
       </div>
       <div class="hero__tagline">

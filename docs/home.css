@@ -151,15 +151,21 @@ em{font-style:normal;color:var(--violet-3)}
 .hero__cta{display:flex;gap:1rem;justify-content:flex-start;flex-wrap:wrap;margin-top:2.2rem}
 .hero__meta{display:flex;align-items:center;justify-content:flex-start;gap:.9rem;margin-top:1.8rem;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);flex-wrap:wrap}
 .hero__meta i{width:3px;height:3px;border-radius:50%;background:var(--violet);opacity:.6}
-/* hero card fan — real .cardpreset hosts; drag to spin, double-click to flip */
-.hero__cards{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:clamp(.6rem,2vw,1.5rem);perspective:1700px;min-height:clamp(280px,42vh,430px)}
-.hero__cards::before{content:"";position:absolute;width:78%;height:62%;left:50%;top:52%;transform:translate(-50%,-50%);
+/* hero card — one real .cardpreset host; drag to spin, double-click to flip —
+   plus a small "how it works" hook pair underneath (lightweight looping video,
+   not another 10MB+ preset) */
+.hero__cards{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(1.2rem,3vh,1.8rem);perspective:1700px;min-height:clamp(280px,42vh,430px)}
+.hero__cards::before{content:"";position:absolute;width:78%;height:62%;left:50%;top:44%;transform:translate(-50%,-50%);
   background:radial-gradient(closest-side,rgba(140,26,242,.42),rgba(92,209,250,.12) 55%,transparent 78%);filter:blur(46px);z-index:-1;opacity:.75}
 .hero__cards .pcard{width:clamp(136px,15vw,200px);flex:0 0 auto;transition:transform .6s var(--ease),filter .4s var(--ease)}
-.hero__cards .pcard--fan-l{transform:rotateY(18deg) scale(.9);z-index:1;filter:brightness(.92)}
-.hero__cards .pcard--fan-c{transform:translateY(-14px) scale(1.03);z-index:3}
-.hero__cards .pcard--fan-r{transform:rotateY(-18deg) scale(.9);z-index:2;filter:brightness(.92)}
-.hero__cards .pcard:hover{z-index:6;filter:brightness(1.06)}
+.hero__cards .pcard--hero{width:clamp(170px,18vw,240px)}
+.hero__cards .pcard:hover{filter:brightness(1.06)}
+.hero__hook{position:relative;z-index:2;display:flex;align-items:center;gap:.6rem}
+.hero__hook-cell{display:block;width:clamp(76px,8vw,104px);aspect-ratio:16/10;border-radius:10px;overflow:hidden;
+  border:1px solid var(--line);background:radial-gradient(circle at 50% 40%,rgba(20,26,58,.9),#06081a 80%)}
+.hero__hook-cell video{width:100%;height:100%;object-fit:cover;display:block}
+.hero__hook-arrow{color:var(--violet);opacity:.65;font-size:1rem}
+.hero__hook-caption{position:relative;z-index:2;max-width:26ch;text-align:center;font-size:.76rem;letter-spacing:.02em;color:var(--muted)}
 /* hero tagline + laurels */
 .hero__tagline{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:clamp(.8rem,2.6vw,1.8rem);margin-top:clamp(.5rem,2vh,1.6rem)}
 .hero__laurel{color:rgba(201,169,97,.5);flex:0 0 auto}
