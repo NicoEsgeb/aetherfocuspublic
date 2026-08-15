@@ -31,7 +31,7 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;600;700&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@400;600;700&family=Oswald:wght@400;600;700&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap">
 
-  <link rel="stylesheet" href="./home.css?v=6">
+  <link rel="stylesheet" href="./home.css?v=8">
 </head>
 <body>
   <!-- fixed atmospheric layers -->
@@ -54,10 +54,10 @@
       <!-- <a href="#worlds">Worlds</a> -->
       <a href="#spheres">Spheres</a>
       <a href="#origin">Origin</a>
-      <a href="#binder">Binder</a>
-      <a href="#premium">Premium</a>
+      <!-- <a href="#binder">Binder</a> -->
+      <!-- <a href="#premium">Premium</a> -->
     </nav>
-    <a class="btn btn--ghost nav__cta" href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download</a>
+    <a class="btn btn--ghost nav__cta" href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download</a>
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -68,15 +68,26 @@
     <!-- <a href="#worlds">Worlds</a> -->
     <a href="#spheres">Spheres</a>
     <a href="#origin">Origin</a>
-    <a href="#binder">Binder</a>
-    <a href="#premium">Premium</a>
-    <a href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer" class="menu__cta">Download on iOS (iPhone/iPad)</a>
+    <!-- <a href="#binder">Binder</a> -->
+    <!-- <a href="#premium">Premium</a> -->
+    <a href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer" class="menu__cta">Download on iOS (iPhone/iPad)</a>
   </div>
 
   <main>
     <!-- ============ HERO ============ -->
     <section class="hero" id="top">
       <div class="hero__veil" aria-hidden="true"></div>
+
+      <!-- ============ LAUNCH NOTICE ============ -->
+      <aside class="rename" role="note">
+        <span class="rename__badge">Live on the App Store</span>
+        <p class="rename__body">
+          <strong>AetherFocus is now NanaiNest.</strong>
+          Same app, same team, new name — free to download today on the App&nbsp;Store
+          for iPhone &amp; iPad.
+        </p>
+      </aside>
+
       <div class="hero__inner hero__inner--split">
         <div class="hero__copy">
           <p class="eyebrow">For iOS &nbsp;·&nbsp; A focus sanctuary</p>
@@ -88,7 +99,7 @@
             Binder, completely&nbsp;yours&nbsp;to&nbsp;keep. Good luck with your hatching!
           </p>
           <div class="hero__cta">
-            <a class="btn btn--primary" href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download on iOS (iPhone/iPad)</a>
+            <a class="btn btn--primary" href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download on iOS (iPhone/iPad)</a>
             <a class="btn btn--ghost" href="#origin">See how it works</a>
           </div>
           <div class="hero__meta">
@@ -348,7 +359,8 @@
     </section>
 
     <!-- ============ CARDS FROM THE CREATOR (public binder) ============ -->
-    <section class="section binder-sec" id="binder">
+    <!-- HIDDEN: not useful yet. Remove the `hidden` attribute to bring it back. -->
+    <section class="section binder-sec" id="binder" hidden>
       <header class="section__head reveal">
         <p class="eyebrow">Cards from the Creator</p>
         <h2 class="section__title">The Creator's Binder.</h2>
@@ -411,17 +423,25 @@
       <header class="section__head reveal">
         <p class="eyebrow">Focus</p>
         <h2 class="section__title">Everything you need, nothing you don't.</h2>
+        <p class="section__lede">Timer, sound, and the whole hatch-and-collect loop — one quiet app, nothing extra.</p>
       </header>
       <div class="focus__grid">
-        <article class="tool reveal"><div class="tool__ic">◷</div><h3>Timer</h3><p>A quiet Pomodoro to shape your sessions — and feed the eggs.</p></article>
-        <article class="tool reveal"><div class="tool__ic">❏</div><h3>Notes</h3><p>Multi-tab scratch space that stays out of the way.</p></article>
-        <article class="tool reveal"><div class="tool__ic">☑</div><h3>Tasks</h3><p>A simple list. Check things off without leaving the world.</p></article>
-        <article class="tool reveal"><div class="tool__ic">⦿</div><h3>Private</h3><p>No tracking, no internet required. Just you and the work.</p></article>
+        <article class="tool reveal"><span class="tool__num">01</span><h3>Timer</h3><p>A quiet Pomodoro to shape your sessions — and feed the eggs.</p></article>
+        <article class="tool reveal"><span class="tool__num">02</span><h3>Music &amp; live radios</h3><p>Curated music and live ambient radio stations to score every session.</p></article>
+        <article class="tool reveal"><span class="tool__num">03</span><h3>Ambience mixer</h3><p>Rain, fire, forest, night — blend your own soundscape and let your spheres answer to it.</p></article>
+        <article class="tool reveal"><span class="tool__num">04</span><h3>Hatch a sphere</h3><p>Feed an egg with your focus and watch it hatch into a living, audio-reactive animation — yours to keep.</p></article>
+        <article class="tool reveal"><span class="tool__num">05</span><h3>Holographic cards</h3><p>Every hatch forges a one-of-a-kind 3D card for your Collection Binder.</p></article>
+        <article class="tool reveal"><span class="tool__num">06</span><h3>Rarity tiers</h3><p>From Common to Legendary — every hatch rolls the odds toward something rarer.</p></article>
+        <article class="tool reveal"><span class="tool__num">07</span><h3>Lore of the Linkers</h3><p>Flip a card to uncover the fantasy lore of the Linkers, one story at a time.</p></article>
+        <article class="tool reveal"><span class="tool__num">08</span><h3>Notes</h3><p>Multi-tab scratch space that stays out of the way.</p></article>
+        <article class="tool reveal"><span class="tool__num">09</span><h3>Tasks</h3><p>A simple list. Check things off without leaving the world.</p></article>
+        <article class="tool reveal"><span class="tool__num">10</span><h3>Private</h3><p>No tracking, no internet required. Just you and the work.</p></article>
       </div>
     </section>
 
     <!-- ============ PREMIUM ============ -->
-    <section class="section premium" id="premium">
+    <!-- HIDDEN: no IAP in the app right now. Remove the `hidden` attribute to bring it back. -->
+    <section class="section premium" id="premium" hidden>
       <header class="section__head reveal">
         <p class="eyebrow">Packs</p>
         <h2 class="section__title">Start free. Expand the universe.</h2>
@@ -432,7 +452,7 @@
           <h3>The Nest</h3>
           <p class="plan__price">Free</p>
           <ul><li>5 audio-reactive spheres</li><li>5 atmospheres &amp; the ambient mixer</li><li>Timer, notes &amp; tasks</li><li>Hatch &amp; collect eggs</li></ul>
-          <a class="btn btn--primary plan__cta" href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download</a>
+          <a class="btn btn--primary plan__cta" href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download</a>
         </article>
         <article class="plan plan--feature reveal">
           <span class="plan__flag">Premium Packs</span>
@@ -445,7 +465,8 @@
     </section>
 
     <!-- ============ ON THE HORIZON (future / scaffolded) ============ -->
-    <section class="section horizon" id="horizon">
+    <!-- HIDDEN: roadmap not public yet. Remove the `hidden` attribute to bring it back. -->
+    <section class="section horizon" id="horizon" hidden>
       <header class="section__head reveal">
         <p class="eyebrow">On the horizon</p>
         <h2 class="section__title">The Nest is opening.</h2>
@@ -481,7 +502,7 @@
         <h2>Light a world.<br>Begin in the Nest.</h2>
         <p>Free on iOS. No account required to start — sign in only when you want to keep your collection in the cloud.</p>
         <div class="get__cta">
-          <a class="btn btn--primary btn--lg" href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download on iOS (iPhone/iPad)</a>
+          <a class="btn btn--primary btn--lg" href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download on iOS (iPhone/iPad)</a>
           <a class="btn btn--ghost btn--lg" href="./support/">Questions? Talk to us</a>
         </div>
       </div>
@@ -495,8 +516,8 @@
       <p class="foot__tag">A living focus sanctuary. Fantasy worldbuilding, meet lo-fi.</p>
     </div>
     <div class="foot__cols">
-      <div><h5>Explore</h5><a href="#spheres">Spheres</a><a href="#binder">Binder</a></div>
-      <div><h5>Get it</h5><a href="https://apps.apple.com/gb/app/aetherfocus/id6759236405" target="_blank" rel="noopener noreferrer">Download</a><a href="#premium">Premium packs</a><a href="#horizon">On the horizon</a></div>
+      <div><h5>Explore</h5><a href="#spheres">Spheres</a><a href="#origin">Origin</a></div>
+      <div><h5>Get it</h5><a href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download</a></div>
       <div><h5>Help</h5><a href="./support/">Support</a><a href="./privacy/">Privacy</a></div>
     </div>
     <div class="foot__base">
