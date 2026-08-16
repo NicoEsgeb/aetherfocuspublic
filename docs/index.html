@@ -6,10 +6,12 @@
   <title>NanaiNest — Focus that becomes a collection</title>
   <meta name="description"
     content="NanaiNest is a focus sanctuary for iOS — timer, tasks, notes, and a soundscape you can sculpt. Every stretch of focus hatches a primordial egg into a living, audio-reactive sphere and a holographic card to collect.">
-  <meta name="theme-color" content="#060818">
+  <meta name="theme-color" content="#050714">
+  <link rel="canonical" href="https://nanainest.com/">
 
   <!-- Open Graph / social -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NanaiNest">
   <meta property="og:title" content="NanaiNest — Focus that becomes a collection">
   <meta property="og:description"
     content="A focus sanctuary for iOS. Set a timer and work — your focus hatches primordial eggs into audio-reactive spheres and holographic cards to collect.">
@@ -25,15 +27,32 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Type system: Cormorant Garamond (display voice) + Instrument Sans (body) + Space Mono (codex meta) -->
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap">
   <!-- Card Studio fonts — families a .cardpreset can use on the binder cards -->
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;600;700&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@400;600;700&family=Oswald:wght@400;600;700&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;600;700&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@400;600;700&family=Oswald:wght@400;600;700&family=Bebas+Neue&display=swap">
 
-  <link rel="stylesheet" href="./home.css?v=9">
+  <link rel="stylesheet" href="./home.css?v=10">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "NanaiNest",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "iOS 16.0 or later",
+    "url": "https://nanainest.com/",
+    "downloadUrl": "https://apps.apple.com/gb/app/nanainest/id6759236405",
+    "description": "A focus sanctuary for iOS. Timer, tasks, notes and a soundscape you can sculpt — every stretch of focus hatches an egg into a living, audio-reactive sphere and a holographic card to collect.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
+  }
+  </script>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <!-- fixed atmospheric layers -->
   <div class="nebula" aria-hidden="true">
     <span class="neb neb-1"></span>
@@ -51,466 +70,406 @@
       <span>NanaiNest</span>
     </a>
     <nav class="nav__links" aria-label="Primary">
-      <!-- <a href="#worlds">Worlds</a> -->
+      <a href="#origin">How it works</a>
       <a href="#spheres">Spheres</a>
-      <a href="#origin">Origin</a>
-      <!-- <a href="#binder">Binder</a> -->
-      <!-- <a href="#premium">Premium</a> -->
+      <a href="#collection">Collection</a>
+      <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn--ghost nav__cta" href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download</a>
-    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <a class="btn btn--primary nav__cta" href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
       <span></span><span></span><span></span>
     </button>
   </header>
 
   <!-- mobile menu -->
   <div class="menu" id="menu" aria-hidden="true">
-    <!-- <a href="#worlds">Worlds</a> -->
+    <a href="#origin">How it works</a>
     <a href="#spheres">Spheres</a>
-    <a href="#origin">Origin</a>
-    <!-- <a href="#binder">Binder</a> -->
-    <!-- <a href="#premium">Premium</a> -->
-    <a href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer" class="menu__cta">Download on iOS (iPhone/iPad)</a>
+    <a href="#collection">Collection</a>
+    <a href="#sound">Sound</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer" class="menu__cta">Download on the App Store</a>
   </div>
 
-  <main>
+  <main id="main">
     <!-- ============ HERO ============ -->
     <section class="hero" id="top">
       <div class="hero__veil" aria-hidden="true"></div>
 
-      <!-- ============ LAUNCH NOTICE ============ -->
-      <aside class="rename" role="note">
-        <span class="rename__badge">Live on the App Store</span>
-        <p class="rename__body">
-          <strong>AetherFocus is now NanaiNest.</strong>
-          Same app, same team, new name — free to download today on the App&nbsp;Store
-          for iPhone &amp; iPad.
-        </p>
-      </aside>
-
-      <div class="hero__inner hero__inner--split">
+      <div class="hero__inner">
         <div class="hero__copy">
-          <p class="eyebrow">For iOS &nbsp;·&nbsp; A focus sanctuary</p>
-          <h1 class="hero__title">Hatch your Focus<br>into light.</h1>
+          <p class="pill">
+            <span class="pill__dot" aria-hidden="true"></span>
+            Now live on the App Store
+          </p>
+          <h1 class="hero__title">Hatch your focus<br>into light.</h1>
           <p class="hero__lede">
-            Hey — welcome to NanaiNest. Settle in, set your focus, and let the soundscape carry you.
-            The time you spend here is never idle: every pulse of focus incubates a Primordial Egg,
-            until it hatches into a living, audio-reactive sphere — and a 3D card for your Collection
-            Binder, completely&nbsp;yours&nbsp;to&nbsp;keep. Good luck with your hatching!
+            Set a timer, shape your soundscape, and work. The time you spend here is never idle —
+            it incubates an egg that hatches into a living, audio-reactive sphere, and a
+            holographic card that's yours to keep.
           </p>
           <div class="hero__cta">
-            <a class="btn btn--primary" href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download on iOS (iPhone/iPad)</a>
-            <a class="btn btn--ghost" href="#origin">See how it works</a>
+            <a class="btn btn--primary btn--lg" href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+            <a class="btn btn--ghost btn--lg" href="#origin">See how it works</a>
           </div>
-          <div class="hero__meta">
-            <span>iOS 16+</span><i></i><span>iPhone &amp; iPad</span><i></i><span>No account required</span>
-          </div>
+          <ul class="hero__meta">
+            <li>Free</li>
+            <li>iOS 16+</li>
+            <li>iPhone &amp; iPad</li>
+            <li>No account required</li>
+          </ul>
         </div>
-        <div class="hero__cards">
-          <article class="pcard pcard--hero" data-preset="./cards/collection/vortex/" tabindex="0" role="button" aria-label="Vortex — Aurora Prism, Rare. Click to flip, drag to spin"></article>
-          <div class="hero__hook" aria-hidden="true">
-            <span class="hero__hook-cell">
-              <video muted loop autoplay playsinline preload="metadata"><source src="./lore/01-energy.mp4" type="video/mp4"></video>
-            </span>
-            <span class="hero__hook-arrow">→</span>
-            <span class="hero__hook-cell">
-              <video muted loop autoplay playsinline preload="metadata"><source src="./lore/01-card.mp4" type="video/mp4"></video>
-            </span>
+
+        <div class="hero__stage">
+          <div class="forge">
+            <div class="forge__step forge__step--egg">
+              <div class="forge__frame">
+                <video class="forge__video" muted loop playsinline preload="metadata" poster="./origin/01-incubate.jpg" aria-hidden="true">
+                  <source src="./origin/01-incubate.mp4" type="video/mp4">
+                </video>
+              </div>
+              <p class="forge__label">Egg</p>
+            </div>
+            <span class="forge__arrow" aria-hidden="true">&rarr;</span>
+            <div class="forge__step">
+              <div class="forge__frame">
+                <video class="forge__video" muted loop playsinline preload="metadata" poster="./lore/01-energy.jpg" aria-hidden="true">
+                  <source src="./lore/01-energy.mp4" type="video/mp4">
+                </video>
+              </div>
+              <p class="forge__label">Animation</p>
+            </div>
+            <span class="forge__arrow" aria-hidden="true">&rarr;</span>
+            <div class="forge__step forge__step--card">
+              <div class="forge__frame">
+                <video class="forge__video" muted loop playsinline preload="metadata" poster="./lore/01-card.jpg" aria-hidden="true">
+                  <source src="./lore/01-card.mp4" type="video/mp4">
+                </video>
+              </div>
+              <p class="forge__label">Card</p>
+            </div>
           </div>
-          <p class="hero__hook-caption">Every pulse of sound becomes a spark — then a card to keep.</p>
+          <p class="hero__forge-caption">Every pulse of sound becomes a spark — then a card to collect.</p>
         </div>
-      </div>
-      <div class="hero__tagline">
-        <svg class="hero__laurel" viewBox="0 0 44 70" width="34" height="54" fill="none" aria-hidden="true">
-          <path d="M37 67 C24 55 19 34 25 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".85"/>
-          <g fill="currentColor" opacity=".68">
-            <ellipse cx="29" cy="56" rx="8" ry="3.3" transform="rotate(-55 29 56)"/>
-            <ellipse cx="25" cy="44" rx="8.4" ry="3.4" transform="rotate(-49 25 44)"/>
-            <ellipse cx="22.5" cy="32" rx="8.2" ry="3.4" transform="rotate(-42 22.5 32)"/>
-            <ellipse cx="22.5" cy="21" rx="7.4" ry="3.1" transform="rotate(-33 22.5 21)"/>
-            <ellipse cx="24" cy="11" rx="6" ry="2.7" transform="rotate(-24 24 11)"/>
-          </g>
-        </svg>
-        <p>
-          <span class="ht-main">Focus beautifully · Collect meaningfully</span>
-          <span class="ht-sub">Designed for mindful creators</span>
-        </p>
-        <svg class="hero__laurel hero__laurel--r" viewBox="0 0 44 70" width="34" height="54" fill="none" aria-hidden="true">
-          <path d="M37 67 C24 55 19 34 25 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".85"/>
-          <g fill="currentColor" opacity=".68">
-            <ellipse cx="29" cy="56" rx="8" ry="3.3" transform="rotate(-55 29 56)"/>
-            <ellipse cx="25" cy="44" rx="8.4" ry="3.4" transform="rotate(-49 25 44)"/>
-            <ellipse cx="22.5" cy="32" rx="8.2" ry="3.4" transform="rotate(-42 22.5 32)"/>
-            <ellipse cx="22.5" cy="21" rx="7.4" ry="3.1" transform="rotate(-33 22.5 21)"/>
-            <ellipse cx="24" cy="11" rx="6" ry="2.7" transform="rotate(-24 24 11)"/>
-          </g>
-        </svg>
       </div>
     </section>
 
-    <!-- ============ LORE INTRO ============ -->
-    <section class="lore" id="lore">
-      <div class="lore__inner reveal">
-        <p class="lore__mark">— from the Nest —</p>
-        <p class="lore__line">
-          In the Nest, focus is never idle. Each <em>pulse</em> of sound becomes energy, and
-          energy — given time and attention — takes <em>form</em>.
-        </p>
-      </div>
-    </section>
-
-    <!-- ============ WORLDS / ATMOSPHERES (hidden — not yet implemented) ============ -->
-    <!--
-    <section class="section worlds" id="worlds">
-      <header class="section__head reveal">
-        <p class="eyebrow">Atmospheres</p>
-        <h2 class="section__title">Worlds, not wallpapers.</h2>
+    <!-- ============ THE LOOP (lore + how it works, one interactive stage) ============ -->
+    <section class="section loop" id="origin">
+      <header class="section__head section__head--wide reveal">
+        <p class="eyebrow">The loop</p>
+        <h2 class="section__title">How a sphere is born.</h2>
         <p class="section__lede">
-          Each environment is a full scene — layered video, ambient sound, and reactive light
-          designed to hold your attention without stealing it. Step between them to match the
-          work ahead.
+          In the Nest, focus is never idle. Each pulse of sound becomes energy, and energy —
+          given time and attention — takes form. Four steps, one quiet loop.
         </p>
       </header>
-      <div class="worlds__grid">
-        <article class="world reveal" style="--w-a:#3a1d5e; --w-b:#0c0a24" data-i="01">
-          <div class="world__art world__art--tavern"></div>
-          <div class="world__body"><h3>The Tavern</h3><p>Rain on the eaves, a low hearth, voices a room away.</p></div>
-        </article>
-        <article class="world reveal" style="--w-a:#123a3a; --w-b:#06121c" data-i="02">
-          <div class="world__art world__art--forest"></div>
-          <div class="world__body"><h3>Starlit Forest</h3><p>Wind in the canopy and night creatures, far off.</p></div>
-        </article>
-        <article class="world reveal" style="--w-a:#4a2a12; --w-b:#1a0f10" data-i="03">
-          <div class="world__art world__art--library"></div>
-          <div class="world__body"><h3>Stone Library</h3><p>Crackling fire, turning pages, deep and still.</p></div>
-        </article>
-        <article class="world reveal" style="--w-a:#1b2a55; --w-b:#070a1e" data-i="04">
-          <div class="world__art world__art--rain"></div>
-          <div class="world__body"><h3>Rainfall</h3><p>A steady downpour to wash the noise away.</p></div>
-        </article>
-        <article class="world reveal" style="--w-a:#3d1640; --w-b:#0c061a" data-i="05">
-          <div class="world__art world__art--aurora"></div>
-          <div class="world__body"><h3>Aurora Veil</h3><p>Slow ribbons of light over a quiet horizon.</p></div>
-        </article>
+
+      <div class="loop__shell reveal" id="loopShell">
+        <!-- stage -->
+        <div class="loop__stage">
+          <div class="loop__screen">
+            <video class="loop__video is-active" data-step="0" muted loop playsinline preload="metadata" poster="./origin/01-incubate.jpg" aria-hidden="true">
+              <source src="./origin/01-incubate.mp4" type="video/mp4">
+            </video>
+            <video class="loop__video" data-step="1" muted loop playsinline preload="none" poster="./origin/02-hatch.jpg" aria-hidden="true">
+              <source src="./origin/02-hatch.mp4" type="video/mp4">
+            </video>
+            <video class="loop__video" data-step="2" muted loop playsinline preload="none" poster="./origin/03-forge.jpg" aria-hidden="true">
+              <source src="./origin/03-forge.mp4" type="video/mp4">
+            </video>
+            <video class="loop__video" data-step="3" muted loop playsinline preload="none" poster="./origin/04-focus.jpg" aria-hidden="true">
+              <source src="./origin/04-focus.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- copy + controls -->
+        <div class="loop__side">
+          <div class="loop__copy" id="loopCopy" aria-live="polite">
+            <p class="loop__num"><span id="loopNum">01</span><i aria-hidden="true">/</i>04</p>
+            <h3 id="loopTitle">Incubate</h3>
+            <p id="loopBody">Choose an egg and it begins to incubate. Press play — your soundscape feeds it, and the egg pulses to every beat.</p>
+          </div>
+
+          <ol class="loop__rail" id="loopRail">
+            <li>
+              <button type="button" class="lstep is-active" data-step="0" aria-current="step">
+                <span class="lstep__bar" aria-hidden="true"><i></i></span>
+                <span class="lstep__label"><b>01</b> Incubate</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="lstep" data-step="1">
+                <span class="lstep__bar" aria-hidden="true"><i></i></span>
+                <span class="lstep__label"><b>02</b> Hatch</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="lstep" data-step="2">
+                <span class="lstep__bar" aria-hidden="true"><i></i></span>
+                <span class="lstep__label"><b>03</b> Forge</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="lstep" data-step="3">
+                <span class="lstep__bar" aria-hidden="true"><i></i></span>
+                <span class="lstep__label"><b>04</b> Focus</span>
+              </button>
+            </li>
+          </ol>
+        </div>
       </div>
     </section>
-    -->
 
     <!-- ============ SPHERES ============ -->
     <section class="section spheres" id="spheres">
       <canvas class="aether-web" id="aetherWeb" aria-hidden="true"></canvas>
       <header class="section__head reveal">
         <p class="eyebrow">Living light</p>
-        <h2 class="section__title">Linked Energy that listen.</h2>
+        <h2 class="section__title">Energy that listens.</h2>
         <p class="section__lede">
-          Audio-reactive visualizers answer your microphone and system sound in real time. Each
-          one is a current of aether — <em>linking</em> the sound around you into motion. Drifting
-          nebulae, fractal lattices, orbital geometry: your workspace, breathing.
+          Audio-reactive visualisers answer your microphone and system sound in real time. Each one
+          is a current of aether — linking the sound around you into motion. Drifting nebulae,
+          fractal lattices, orbital geometry: your workspace, breathing.
         </p>
       </header>
+
       <div class="spheres__grid">
-        <article class="orb-card reveal" style="--c1:#BF85FF; --c2:#5CD1FA"><div class="orb-card__viz"><video class="orb-card__video" muted loop autoplay playsinline preload="metadata"><source src="./spheres/orbital.mp4" type="video/mp4"></video></div><div class="orb-card__tag"><span>Orbital</span><b class="rarity rarity--uncommon">Uncommon</b></div></article>
-        <article class="orb-card reveal" style="--c1:#7df0c8; --c2:#5cf2a0"><div class="orb-card__viz"><video class="orb-card__video" muted loop autoplay playsinline preload="metadata"><source src="./spheres/ethereal-bloom.mp4" type="video/mp4"></video></div><div class="orb-card__tag"><span>Ethereal Bloom</span><b class="rarity rarity--common">Common</b></div></article>
-        <article class="orb-card reveal" style="--c1:#5cd1fa; --c2:#7aa0ff"><div class="orb-card__viz"><video class="orb-card__video" muted loop autoplay playsinline preload="metadata"><source src="./spheres/nexus.mp4" type="video/mp4"></video></div><div class="orb-card__tag"><span>Nexus</span><b class="rarity rarity--common">Common</b></div></article>
-        <article class="orb-card reveal" style="--c1:#c77bff; --c2:#ff7bd6"><div class="orb-card__viz"><video class="orb-card__video" muted loop autoplay playsinline preload="metadata"><source src="./spheres/nebula.mp4" type="video/mp4"></video></div><div class="orb-card__tag"><span>Nebula</span><b class="rarity rarity--common">Common</b></div></article>
-        <article class="orb-card reveal" style="--c1:#a060ff; --c2:#ff6fae"><div class="orb-card__viz"><video class="orb-card__video" muted loop autoplay playsinline preload="metadata"><source src="./spheres/vortex.mp4" type="video/mp4"></video></div><div class="orb-card__tag"><span>Vortex</span><b class="rarity rarity--common">Common</b></div></article>
-        <article class="orb-card reveal" style="--c1:#8ab4ff; --c2:#c9a961"><div class="orb-card__viz"><video class="orb-card__video" muted loop autoplay playsinline preload="metadata"><source src="./spheres/galaxy.mp4" type="video/mp4"></video></div><div class="orb-card__tag"><span>Galaxy</span><b class="rarity rarity--rare">Very Rare</b></div></article>
+        <article class="orb reveal"><div class="orb__viz"><video class="orb__video" muted loop playsinline preload="none" poster="./spheres/orbital.jpg"><source src="./spheres/orbital.mp4" type="video/mp4"></video></div><div class="orb__tag"><span>Orbital</span><b class="rar rar--uncommon">Uncommon</b></div></article>
+        <article class="orb reveal"><div class="orb__viz"><video class="orb__video" muted loop playsinline preload="none" poster="./spheres/ethereal-bloom.jpg"><source src="./spheres/ethereal-bloom.mp4" type="video/mp4"></video></div><div class="orb__tag"><span>Ethereal Bloom</span><b class="rar rar--common">Common</b></div></article>
+        <article class="orb reveal"><div class="orb__viz"><video class="orb__video" muted loop playsinline preload="none" poster="./spheres/nexus.jpg"><source src="./spheres/nexus.mp4" type="video/mp4"></video></div><div class="orb__tag"><span>Nexus</span><b class="rar rar--common">Common</b></div></article>
+        <article class="orb reveal"><div class="orb__viz"><video class="orb__video" muted loop playsinline preload="none" poster="./spheres/nebula.jpg"><source src="./spheres/nebula.mp4" type="video/mp4"></video></div><div class="orb__tag"><span>Nebula</span><b class="rar rar--common">Common</b></div></article>
+        <article class="orb reveal"><div class="orb__viz"><video class="orb__video" muted loop playsinline preload="none" poster="./spheres/vortex.jpg"><source src="./spheres/vortex.mp4" type="video/mp4"></video></div><div class="orb__tag"><span>Vortex</span><b class="rar rar--common">Common</b></div></article>
+        <article class="orb reveal"><div class="orb__viz"><video class="orb__video" muted loop playsinline preload="none" poster="./spheres/galaxy.jpg"><source src="./spheres/galaxy.mp4" type="video/mp4"></video></div><div class="orb__tag"><span>Galaxy</span><b class="rar rar--rare">Very Rare</b></div></article>
       </div>
-      <p class="spheres__foot reveal">Eleven spheres and counting — five free, the rest waiting in the packs.</p>
+
+      <!-- NEW: the rarity ladder was never explained anywhere on the old page -->
+      <div class="ladder reveal">
+        <p class="ladder__lead">Every hatch rolls the odds. The rarer the pull, the rarer the sphere — and the card it forges.</p>
+        <ol class="ladder__scale">
+          <li class="rung rung--common"><span>Common</span></li>
+          <li class="rung rung--uncommon"><span>Uncommon</span></li>
+          <li class="rung rung--rare"><span>Very Rare</span></li>
+          <li class="rung rung--legendary"><span>Legendary</span></li>
+        </ol>
+        <p class="ladder__foot">Eleven spheres and counting — five free, the rest waiting in the packs.</p>
+      </div>
     </section>
 
-    <!-- ============ COLLECT: ENERGY + CARDS ============ -->
-    <section class="section collect" id="collect">
-      <header class="section__head reveal">
-        <p class="eyebrow">Collect &amp; Explore</p>
-        <h2 class="section__title">Collect the energy. Explore the lore.</h2>
-        <p class="section__lede">
-          Every Linked Energy moves to your music — and forges a collectible card. Watch the
-          energy come alive, then flip its card to uncover the lore behind it.
-        </p>
-      </header>
+    <!-- ============ COLLECTION ============ -->
+    <section class="section collection" id="collection">
+      <div class="collection__grid">
+        <div class="collection__copy reveal">
+          <p class="eyebrow">Collect &amp; explore</p>
+          <h2 class="section__title">Every hatch forges a card.</h2>
+          <p class="section__lede">
+            The sphere is only half of it. Each hatch also forges a one-of-a-kind 3D holographic
+            card and slots it into your Collection Binder — real foil, real tilt, real weight.
+            Flip one over and the lore of the Linkers is written on the back.
+          </p>
+          <ul class="ticks">
+            <li>Tilt and spin in full 3D, with foil that catches the light</li>
+            <li>Flip to read the lore behind the sphere you pulled</li>
+            <li>Bound into your Collection Binder, yours to keep</li>
+          </ul>
+          <p class="collection__hint">This one is real — drag it.</p>
+        </div>
 
-      <div class="collect__list">
+        <div class="collection__card reveal">
+          <article class="pcard" data-preset="./cards/collection/bloom/" tabindex="0" role="button" aria-label="A holographic collection card. Drag to spin, double-click to flip."></article>
+        </div>
+      </div>
 
-        <article class="collect__pair reveal">
-          <figure class="collect__cell">
-            <video class="collect__video" muted loop playsinline preload="none">
+      <!-- Energy → card pairs. Column headers carry the labels on desktop;
+           each cell's figcaption takes over once the pair stacks on mobile.
+           TO ADD A PAIR: export <NN>-energy.mp4 + <NN>-card.mp4 into ./lore/,
+           grab posters with ffmpeg, then copy one <article class="pair"> block.
+           Pairs 02 and 03 are absent because their -card.mp4 was never made. -->
+      <div class="pairs reveal">
+        <div class="pairs__head" aria-hidden="true">
+          <p>Linked Energy · reacts to your music</p>
+          <span></span>
+          <p>Its card · flip to explore the lore</p>
+        </div>
+
+        <article class="pair">
+          <figure class="pair__cell">
+            <video class="pair__video" muted loop playsinline preload="none" poster="./lore/01-energy.jpg">
               <source src="./lore/01-energy.mp4" type="video/mp4">
             </video>
             <figcaption>Reacts to your music</figcaption>
           </figure>
-          <span class="collect__link" aria-hidden="true">→</span>
-          <figure class="collect__cell">
-            <video class="collect__video" muted loop playsinline preload="none">
+          <span class="pair__arrow" aria-hidden="true">&rarr;</span>
+          <figure class="pair__cell">
+            <video class="pair__video" muted loop playsinline preload="none" poster="./lore/01-card.jpg">
               <source src="./lore/01-card.mp4" type="video/mp4">
             </video>
             <figcaption>Flip the card · explore the lore</figcaption>
           </figure>
         </article>
 
-        <article class="collect__pair reveal">
-          <figure class="collect__cell">
-            <video class="collect__video" muted loop playsinline preload="none">
-              <source src="./lore/02-energy.mp4" type="video/mp4">
-            </video>
-            <figcaption>Reacts to your music</figcaption>
-          </figure>
-          <span class="collect__link" aria-hidden="true">→</span>
-          <figure class="collect__cell">
-            <video class="collect__video" muted loop playsinline preload="none">
-              <source src="./lore/02-card.mp4" type="video/mp4">
-            </video>
-            <figcaption>Flip the card · explore the lore</figcaption>
-          </figure>
-        </article>
-
-        <article class="collect__pair reveal">
-          <figure class="collect__cell">
-            <video class="collect__video" muted loop playsinline preload="none">
-              <source src="./lore/03-energy.mp4" type="video/mp4">
-            </video>
-            <figcaption>Reacts to your music</figcaption>
-          </figure>
-          <span class="collect__link" aria-hidden="true">→</span>
-          <figure class="collect__cell">
-            <video class="collect__video" muted loop playsinline preload="none">
-              <source src="./lore/03-card.mp4" type="video/mp4">
-            </video>
-            <figcaption>Flip the card · explore the lore</figcaption>
-          </figure>
-        </article>
-
-        <article class="collect__pair reveal">
-          <figure class="collect__cell">
-            <video class="collect__video" muted loop playsinline preload="none">
+        <article class="pair">
+          <figure class="pair__cell">
+            <video class="pair__video" muted loop playsinline preload="none" poster="./lore/04-energy.jpg">
               <source src="./lore/04-energy.mp4" type="video/mp4">
             </video>
             <figcaption>Reacts to your music</figcaption>
           </figure>
-          <span class="collect__link" aria-hidden="true">→</span>
-          <figure class="collect__cell">
-            <video class="collect__video" muted loop playsinline preload="none">
+          <span class="pair__arrow" aria-hidden="true">&rarr;</span>
+          <figure class="pair__cell">
+            <video class="pair__video" muted loop playsinline preload="none" poster="./lore/04-card.jpg">
               <source src="./lore/04-card.mp4" type="video/mp4">
             </video>
             <figcaption>Flip the card · explore the lore</figcaption>
           </figure>
         </article>
-
       </div>
-    </section>
-
-    <!-- ============ ORIGIN / HOW IT WORKS ============ -->
-    <section class="section origin" id="origin">
-      <header class="section__head reveal">
-        <p class="eyebrow">Origin &nbsp;·&nbsp; How it works</p>
-        <h2 class="section__title">How a sphere is born.</h2>
-        <p class="section__lede">
-          Four steps, one quiet loop. Choose an egg, feed it your focus, and watch it hatch into a
-          living sphere — and a card that's yours to keep.
-        </p>
-      </header>
-      <div class="origin__flow">
-
-        <article class="ostep reveal">
-          <div class="ostep__media">
-            <video class="ostep__video" muted loop playsinline preload="none" poster="./origin/01-incubate.jpg" aria-label="An egg pulsing to the music as it incubates">
-              <source src="./origin/01-incubate.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="ostep__text">
-            <span class="ostep__num">01</span>
-            <h3>Incubate</h3>
-            <p>Choose an egg and it begins to incubate. Press play — your soundscape feeds it, and the egg pulses to every beat.</p>
-          </div>
-        </article>
-
-        <article class="ostep reveal">
-          <div class="ostep__media">
-            <video class="ostep__video" muted playsinline preload="none" poster="./origin/02-hatch.jpg" aria-label="An egg hatching into a glowing audio-reactive sphere">
-              <source src="./origin/02-hatch.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="ostep__text">
-            <span class="ostep__num">02</span>
-            <h3>Hatch</h3>
-            <p>Hold your focus and the shell gives way — your egg hatches into living, audio-reactive linked energy. Good luck with your hatch!</p>
-          </div>
-        </article>
-
-        <article class="ostep reveal">
-          <div class="ostep__media">
-            <video class="ostep__video" muted playsinline preload="none" poster="./origin/03-forge.jpg" aria-label="A 3D holographic card forming, then flipping">
-              <source src="./origin/03-forge.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="ostep__text">
-            <span class="ostep__num">03</span>
-            <h3>Forge</h3>
-            <p>Every hatch forges a one-of-a-kind 3D holographic card. Watch it take shape, give it a flip, and slot it into your Collection Binder.</p>
-          </div>
-        </article>
-
-        <article class="ostep reveal">
-          <div class="ostep__media">
-            <video class="ostep__video" muted loop playsinline preload="none" poster="./origin/04-focus.jpg" aria-label="The hatched sphere pulsing during a focus session">
-              <source src="./origin/04-focus.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="ostep__text">
-            <span class="ostep__num">04</span>
-            <h3>Focus</h3>
-            <p>Now set it loose. Your new sphere becomes the centerpiece of every focus session — completely yours to keep.</p>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ============ CARDS FROM THE CREATOR (public binder) ============ -->
-    <!-- HIDDEN: not useful yet. Remove the `hidden` attribute to bring it back. -->
-    <section class="section binder-sec" id="binder" hidden>
-      <header class="section__head reveal">
-        <p class="eyebrow">Cards from the Creator</p>
-        <h2 class="section__title">The Creator's Binder.</h2>
-        <p class="section__lede">
-          A public, hand-designed binder — the forms the maker pulled from the aether first.
-          Built with the in-app card studio, preset by preset. New pages as the collection grows.
-        </p>
-      </header>
-
-      <div class="binder reveal">
-        <div class="binder__spine" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="binder__page">
-          <!-- Each slot hosts a real .cardpreset (exported from the in-app Card Studio).
-               cards.js fetches ./cards/<NN>/card.cardpreset and renders it as a rotatable
-               3D holo card; a missing file falls back to ./cards/_default/. -->
-          <div class="binder__grid" id="binderGrid">
-            <article class="pcard" data-preset="./cards/01/" tabindex="0" role="button" aria-label="Binder slot 01 — click to flip, drag to spin"><span class="pcard__no">01</span></article>
-            <article class="pcard" data-preset="./cards/02/" tabindex="0" role="button" aria-label="Binder slot 02 — click to flip, drag to spin"><span class="pcard__no">02</span></article>
-            <article class="pcard" data-preset="./cards/03/" tabindex="0" role="button" aria-label="Binder slot 03 — click to flip, drag to spin"><span class="pcard__no">03</span></article>
-            <article class="pcard" data-preset="./cards/04/" tabindex="0" role="button" aria-label="Binder slot 04 — click to flip, drag to spin"><span class="pcard__no">04</span></article>
-            <article class="pcard" data-preset="./cards/05/" tabindex="0" role="button" aria-label="Binder slot 05 — click to flip, drag to spin"><span class="pcard__no">05</span></article>
-            <article class="pcard" data-preset="./cards/06/" tabindex="0" role="button" aria-label="Binder slot 06 — click to flip, drag to spin"><span class="pcard__no">06</span></article>
-            <article class="pcard" data-preset="./cards/07/" tabindex="0" role="button" aria-label="Binder slot 07 — click to flip, drag to spin"><span class="pcard__no">07</span></article>
-            <article class="pcard" data-preset="./cards/08/" tabindex="0" role="button" aria-label="Binder slot 08 — click to flip, drag to spin"><span class="pcard__no">08</span></article>
-            <article class="pcard" data-preset="./cards/09/" tabindex="0" role="button" aria-label="Binder slot 09 — click to flip, drag to spin"><span class="pcard__no">09</span></article>
-          </div>
-          <div class="binder__foot">
-            <span>The Creator's Binder · Page 01</span>
-            <span class="binder__count">9 slots</span>
-          </div>
-        </div>
-      </div>
-      <p class="binder__note reveal">A public binder is coming to your account, too — bind your own and share a page.</p>
     </section>
 
     <!-- ============ SOUND ============ -->
-    <section class="section split sound" id="sound">
-      <div class="split__media reveal">
-        <div class="mixer">
-          <div class="mixer__row"><label>Music</label><div class="mixer__track"><i style="--v:72%"></i></div></div>
-          <div class="mixer__row"><label>Rain</label><div class="mixer__track"><i style="--v:54%"></i></div></div>
-          <div class="mixer__row"><label>Fire</label><div class="mixer__track"><i style="--v:38%"></i></div></div>
-          <div class="mixer__row"><label>Forest</label><div class="mixer__track"><i style="--v:61%"></i></div></div>
-          <div class="mixer__row"><label>Night</label><div class="mixer__track"><i style="--v:28%"></i></div></div>
-        </div>
-      </div>
-      <div class="split__copy reveal">
+    <section class="section sound" id="sound">
+      <header class="section__head reveal">
         <p class="eyebrow">Sound</p>
         <h2 class="section__title">Sound you can sculpt.</h2>
         <p class="section__lede">
-          Blend curated music with ambient layers — rain, crackling fire, forest wind, night
-          creatures. Every layer has its own volume. Build the exact soundscape your focus
-          needs, then let the spheres answer to it.
+          Blend curated music and live radio with ambient layers — rain, crackling fire, forest
+          wind, night creatures. Every layer has its own volume. Build the exact soundscape your
+          focus needs, then let the spheres answer to it.
         </p>
+      </header>
+
+      <div class="mix reveal" id="mix">
+        <div class="mix__panel">
+          <p class="mix__title">Ambience mixer <span>preview</span></p>
+          <div class="mix__rows">
+            <div class="mix__row">
+              <label for="mix-music">Music</label>
+              <input type="range" id="mix-music" class="mix__range" min="0" max="100" value="72" style="--v:72%">
+              <output for="mix-music">72</output>
+            </div>
+            <div class="mix__row">
+              <label for="mix-rain">Rain</label>
+              <input type="range" id="mix-rain" class="mix__range" min="0" max="100" value="54" style="--v:54%">
+              <output for="mix-rain">54</output>
+            </div>
+            <div class="mix__row">
+              <label for="mix-fire">Fire</label>
+              <input type="range" id="mix-fire" class="mix__range" min="0" max="100" value="38" style="--v:38%">
+              <output for="mix-fire">38</output>
+            </div>
+            <div class="mix__row">
+              <label for="mix-forest">Forest</label>
+              <input type="range" id="mix-forest" class="mix__range" min="0" max="100" value="61" style="--v:61%">
+              <output for="mix-forest">61</output>
+            </div>
+            <div class="mix__row">
+              <label for="mix-night">Night</label>
+              <input type="range" id="mix-night" class="mix__range" min="0" max="100" value="28" style="--v:28%">
+              <output for="mix-night">28</output>
+            </div>
+          </div>
+          <p class="mix__note">Move a slider — the sphere answers. Audio lives in the app.</p>
+        </div>
+
+        <figure class="mix__orb">
+          <div class="mix__orb-viz">
+            <video id="mixOrb" muted loop playsinline preload="none" poster="./spheres/nebula.jpg"><source src="./spheres/nebula.mp4" type="video/mp4"></video>
+          </div>
+          <figcaption>Nebula, responding to your mix</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- ============ FOCUS TOOLS ============ -->
-    <section class="section focus" id="focus">
+    <!-- ============ WHAT'S INSIDE ============ -->
+    <section class="section inside" id="inside">
       <header class="section__head reveal">
-        <p class="eyebrow">Focus</p>
+        <p class="eyebrow">What's inside</p>
         <h2 class="section__title">Everything you need, nothing you don't.</h2>
-        <p class="section__lede">Timer, sound, and the whole hatch-and-collect loop — one quiet app, nothing extra.</p>
+        <p class="section__lede">One quiet app: the timer and the tools around it, the sound that scores it, and the collection it leaves behind.</p>
       </header>
-      <div class="focus__grid">
-        <article class="tool reveal"><span class="tool__num">01</span><h3>Timer</h3><p>A quiet Pomodoro to shape your sessions — and feed the eggs.</p></article>
-        <article class="tool reveal"><span class="tool__num">02</span><h3>Music &amp; live radios</h3><p>Curated music and live ambient radio stations to score every session.</p></article>
-        <article class="tool reveal"><span class="tool__num">03</span><h3>Ambience mixer</h3><p>Rain, fire, forest, night — blend your own soundscape and let your spheres answer to it.</p></article>
-        <article class="tool reveal"><span class="tool__num">04</span><h3>Hatch a sphere</h3><p>Feed an egg with your focus and watch it hatch into a living, audio-reactive animation — yours to keep.</p></article>
-        <article class="tool reveal"><span class="tool__num">05</span><h3>Holographic cards</h3><p>Every hatch forges a one-of-a-kind 3D card for your Collection Binder.</p></article>
-        <article class="tool reveal"><span class="tool__num">06</span><h3>Rarity tiers</h3><p>From Common to Legendary — every hatch rolls the odds toward something rarer.</p></article>
-        <article class="tool reveal"><span class="tool__num">07</span><h3>Lore of the Linkers</h3><p>Flip a card to uncover the fantasy lore of the Linkers, one story at a time.</p></article>
-        <article class="tool reveal"><span class="tool__num">08</span><h3>Notes</h3><p>Multi-tab scratch space that stays out of the way.</p></article>
-        <article class="tool reveal"><span class="tool__num">09</span><h3>Tasks</h3><p>A simple list. Check things off without leaving the world.</p></article>
-        <article class="tool reveal"><span class="tool__num">10</span><h3>Private</h3><p>No tracking, no internet required. Just you and the work.</p></article>
+
+      <div class="inside__groups">
+        <section class="grp reveal">
+          <h3 class="grp__name">Focus</h3>
+          <dl class="grp__list">
+            <div><dt>Timer</dt><dd>A quiet Pomodoro to shape your sessions — and feed the eggs.</dd></div>
+            <div><dt>Notes</dt><dd>Multi-tab scratch space that stays out of the way.</dd></div>
+            <div><dt>Tasks</dt><dd>A simple list. Check things off without leaving the world.</dd></div>
+          </dl>
+        </section>
+
+        <section class="grp reveal">
+          <h3 class="grp__name">Sound</h3>
+          <dl class="grp__list">
+            <div><dt>Music &amp; live radios</dt><dd>Curated music and live ambient radio stations to score every session.</dd></div>
+            <div><dt>Ambience mixer</dt><dd>Rain, fire, forest, night — blend your own soundscape and let your spheres answer to it.</dd></div>
+          </dl>
+        </section>
+
+        <section class="grp reveal">
+          <h3 class="grp__name">Collect</h3>
+          <dl class="grp__list">
+            <div><dt>Hatch a sphere</dt><dd>Feed an egg with your focus and watch it hatch into a living, audio-reactive animation.</dd></div>
+            <div><dt>Holographic cards</dt><dd>Every hatch forges a one-of-a-kind 3D card for your Collection Binder.</dd></div>
+            <div><dt>Rarity tiers</dt><dd>From Common to Legendary — every hatch rolls the odds toward something rarer.</dd></div>
+            <div><dt>Lore of the Linkers</dt><dd>Flip a card to uncover the fantasy lore of the Linkers, one story at a time.</dd></div>
+          </dl>
+        </section>
+
+        <section class="grp reveal">
+          <h3 class="grp__name">Yours</h3>
+          <dl class="grp__list">
+            <div><dt>Private</dt><dd>No tracking, no internet required. Just you and the work.</dd></div>
+            <div><dt>Kept</dt><dd>Spheres and cards stay yours. Sign in only if you want them in the cloud.</dd></div>
+          </dl>
+        </section>
       </div>
     </section>
 
-    <!-- ============ PREMIUM ============ -->
-    <!-- HIDDEN: no IAP in the app right now. Remove the `hidden` attribute to bring it back. -->
-    <section class="section premium" id="premium" hidden>
+    <!-- ============ FAQ (new) ============ -->
+    <section class="section faq" id="faq">
       <header class="section__head reveal">
-        <p class="eyebrow">Packs</p>
-        <h2 class="section__title">Start free. Expand the universe.</h2>
-        <p class="section__lede">Five spheres free, forever. Unlock themed packs of premium visualizers when you want more light in the Nest.</p>
+        <p class="eyebrow">Questions</p>
+        <h2 class="section__title">Before you download.</h2>
       </header>
-      <div class="plans">
-        <article class="plan reveal">
-          <h3>The Nest</h3>
-          <p class="plan__price">Free</p>
-          <ul><li>5 audio-reactive spheres</li><li>5 atmospheres &amp; the ambient mixer</li><li>Timer, notes &amp; tasks</li><li>Hatch &amp; collect eggs</li></ul>
-          <a class="btn btn--primary plan__cta" href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download</a>
-        </article>
-        <article class="plan plan--feature reveal">
-          <span class="plan__flag">Premium Packs</span>
-          <h3>Expansions</h3>
-          <p class="plan__price">£1.99 <small>each</small></p>
-          <ul><li>Synapse, Singularity, Vortex &amp; more</li><li>Themed lore packs — Emberbound &amp; Mantles</li><li>Rare card variants to hatch</li><li>One-time purchase, yours to keep</li></ul>
-          <a class="btn btn--ghost plan__cta" href="#get">See the packs in-app</a>
-        </article>
-      </div>
-    </section>
 
-    <!-- ============ ON THE HORIZON (future / scaffolded) ============ -->
-    <!-- HIDDEN: roadmap not public yet. Remove the `hidden` attribute to bring it back. -->
-    <section class="section horizon" id="horizon" hidden>
-      <header class="section__head reveal">
-        <p class="eyebrow">On the horizon</p>
-        <h2 class="section__title">The Nest is opening.</h2>
-        <p class="section__lede">What's coming next to nanainest.com. Scaffolded today, lit up soon.</p>
-      </header>
-      <div class="horizon__grid">
-        <article class="soon reveal" id="account">
-          <span class="soon__badge">Soon</span>
-          <h3>Sign in on the web</h3>
-          <p>Log in and watch your collection sync from the app — every egg, sphere and card, in one place.</p>
-        </article>
-        <article class="soon reveal">
-          <span class="soon__badge">Soon</span>
-          <h3>Hatch in your browser</h3>
-          <p>Focus on the web and feed your eggs the same aether — one cloud, every device.</p>
-        </article>
-        <article class="soon reveal">
-          <span class="soon__badge">Planned</span>
-          <h3>Share a binder</h3>
-          <p>Publish a page of your own bound cards and trade pages with the Nest.</p>
-        </article>
-        <article class="soon reveal">
-          <span class="soon__badge">Planned</span>
-          <h3>NanaiNest for iOS</h3>
-          <p>The Nest in your pocket — the same sanctuary, on iPhone &amp; iPad.</p>
-        </article>
+      <div class="faq__list reveal">
+        <details class="qa" open>
+          <summary>How much does it cost?</summary>
+          <div class="qa__body"><p>NanaiNest is free to download on the App Store. Five spheres are free; further themed packs expand the collection.</p></div>
+        </details>
+        <details class="qa">
+          <summary>Do I need an account?</summary>
+          <div class="qa__body"><p>No. You can start focusing straight away. Sign in only when you want to keep your collection in the cloud.</p></div>
+        </details>
+        <details class="qa">
+          <summary>Which devices does it run on?</summary>
+          <div class="qa__body"><p>iPhone and iPad, on iOS 16 or later.</p></div>
+        </details>
+        <details class="qa">
+          <summary>Does it need an internet connection?</summary>
+          <div class="qa__body"><p>No. There's no tracking and no connection required — live radio is the one thing that needs to be online.</p></div>
+        </details>
+        <details class="qa">
+          <summary>Do I keep the spheres and cards I hatch?</summary>
+          <div class="qa__body"><p>Yes. Every sphere you hatch and every card it forges is yours to keep, in your Collection Binder.</p></div>
+        </details>
+        <details class="qa">
+          <summary>Wasn't this called AetherFocus?</summary>
+          <div class="qa__body"><p>It was. Same app, same team, new name — NanaiNest. Nothing you collected has gone anywhere.</p></div>
+        </details>
       </div>
     </section>
 
     <!-- ============ FINAL CTA ============ -->
     <section class="get" id="get">
       <div class="get__inner reveal">
+        <p class="eyebrow eyebrow--center">Begin</p>
         <h2>Light a world.<br>Begin in the Nest.</h2>
-        <p>Free on iOS. No account required to start — sign in only when you want to keep your collection in the cloud.</p>
+        <p class="get__lede">Free on iOS. No account required to start — sign in only when you want to keep your collection in the cloud.</p>
         <div class="get__cta">
-          <a class="btn btn--primary btn--lg" href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download on iOS (iPhone/iPad)</a>
+          <a class="btn btn--primary btn--lg" href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
           <a class="btn btn--ghost btn--lg" href="./support/">Questions? Talk to us</a>
         </div>
       </div>
@@ -519,14 +478,16 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="foot">
-    <div class="foot__top">
-      <a class="foot__brand" href="#top"><img src="./assets/icon.png" alt="" width="26" height="26"><span>NanaiNest</span></a>
-      <p class="foot__tag">A living focus sanctuary. Fantasy worldbuilding, meet lo-fi.</p>
-    </div>
-    <div class="foot__cols">
-      <div><h5>Explore</h5><a href="#spheres">Spheres</a><a href="#origin">Origin</a></div>
-      <div><h5>Get it</h5><a href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download</a></div>
-      <div><h5>Help</h5><a href="./support/">Support</a><a href="./privacy/">Privacy</a></div>
+    <div class="foot__grid">
+      <div class="foot__brandcol">
+        <a class="foot__brand" href="#top"><img src="./assets/icon.png" alt="" width="26" height="26"><span>NanaiNest</span></a>
+        <p class="foot__tag">A living focus sanctuary. Fantasy worldbuilding, meet lo-fi.</p>
+      </div>
+      <div class="foot__cols">
+        <div><h3>Explore</h3><a href="#origin">How it works</a><a href="#spheres">Spheres</a><a href="#collection">Collection</a></div>
+        <div><h3>Get it</h3><a href="https://apps.apple.com/gb/app/nanainest/id6759236405" target="_blank" rel="noopener noreferrer">Download</a><a href="#faq">FAQ</a></div>
+        <div><h3>Help</h3><a href="./support/">Support</a><a href="./privacy/">Privacy</a></div>
+      </div>
     </div>
     <div class="foot__base">
       <p>&copy; 2026 NanaiNest</p>
@@ -534,7 +495,7 @@
     </div>
   </footer>
 
-  <script src="./home.js?v=3" defer></script>
+  <script src="./home.js?v=4" defer></script>
   <script src="./cards.js?v=3" defer></script>
 </body>
 </html>
