@@ -46,7 +46,18 @@
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* Native smooth scroll is the fallback if Lenis fails to load — the
+   .lenis rules below switch it off once Lenis takes over. */
 html{color-scheme:dark;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+/* ── Lenis smooth scroll (see home.js) ── */
+html.lenis,
+html.lenis body{height:auto}
+/* Lenis drives scrollTop itself — native smooth scrolling would fight it */
+html.lenis{scroll-behavior:auto!important}
+.lenis[data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+
 body{
   background:var(--bg);
   color:var(--text);

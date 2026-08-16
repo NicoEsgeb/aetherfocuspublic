@@ -11,6 +11,55 @@
   const DPR = Math.min(window.devicePixelRatio || 1, 2);
   const TAU = Math.PI * 2;
 
+  /* ---------- LENIS SMOOTH SCROLL ----------
+     Gives the page weighted momentum: the wheel feeds a target position
+     that eases toward each frame, so it keeps gliding after you stop.
+     Falls back to native `scroll-behavior: smooth` (home.css) if the CDN
+     script fails or the visitor prefers reduced motion. */
+  let lenisInstance = null;
+  function smoothScroll() {
+    if (reduce || typeof Lenis !== 'function') return null;
+    const lenis = new Lenis({
+      duration: 1.35,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      wheelMultiplier: 1,
+      touchMultiplier: 1.6,
+      autoRaf: false
+    });
+    const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+    window.lenis = lenis;
+    return lenis;
+  }
+
+  // Scroll the page, using Lenis when it is driving.
+  function scrollTo(target, offset = 0) {
+    if (lenisInstance) {
+      lenisInstance.scrollTo(target, { offset });
+    } else if (typeof target === 'number') {
+      window.scrollTo({ top: target, behavior: reduce ? 'auto' : 'smooth' });
+    } else {
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    }
+  }
+
+  // Lenis disables native `scroll-behavior`, so in-page links have to be
+  // routed through it or they jump instantly.
+  function anchorLinks() {
+    if (!lenisInstance) return;
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (event) => {
+        const href = link.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        event.preventDefault();
+        scrollTo(target);
+        history.pushState(null, '', href);
+      });
+    });
+  }
+
   /* ---------- NAV + SCROLL PROGRESS + ACTIVE LINK ---------- */
   function nav() {
     const navEl = document.getElementById('nav');
@@ -67,6 +116,7 @@
       m.setAttribute('aria-hidden', open ? 'false' : 'true');
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       document.body.style.overflow = open ? 'hidden' : '';
+      if (lenisInstance) open ? lenisInstance.stop() : lenisInstance.start();
     }
     toggle.addEventListener('click', () => set(!m.classList.contains('open')));
     m.querySelectorAll('a').forEach(a => a.addEventListener('click', () => set(false)));
@@ -341,7 +391,8 @@
 
   /* ---------- init ---------- */
   function init() {
-    nav(); menu(); reveals(); lazyVideos(); birthLoop(); mixer(); aetherWeb();
+    lenisInstance = smoothScroll();
+    nav(); menu(); anchorLinks(); reveals(); lazyVideos(); birthLoop(); mixer(); aetherWeb();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

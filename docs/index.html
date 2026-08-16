@@ -134,7 +134,7 @@
             <div class="forge__step">
               <div class="forge__frame">
                 <video class="forge__video" muted loop playsinline preload="metadata" poster="./lore/01-energy.jpg" aria-hidden="true">
-                  <source src="./lore/01-energy.mp4" type="video/mp4">
+                  <source src="./lore/01-energy.mp4?v=2" type="video/mp4">
                 </video>
               </div>
               <p class="forge__label">Animation</p>
@@ -277,7 +277,7 @@
         </div>
 
         <div class="collection__card reveal">
-          <article class="pcard" data-preset="./cards/collection/bloom/" tabindex="0" role="button" aria-label="A holographic collection card. Drag to spin, double-click to flip."></article>
+          <article class="pcard" data-preset="./cards/orbital-sphere-v6_OLD-PRESET.cardpreset" tabindex="0" role="button" aria-label="A holographic collection card. Drag to spin, double-click to flip."></article>
         </div>
       </div>
 
@@ -296,7 +296,7 @@
         <article class="pair">
           <figure class="pair__cell">
             <video class="pair__video" muted loop playsinline preload="none" poster="./lore/01-energy.jpg">
-              <source src="./lore/01-energy.mp4" type="video/mp4">
+              <source src="./lore/01-energy.mp4?v=2" type="video/mp4">
             </video>
             <figcaption>Reacts to your music</figcaption>
           </figure>
@@ -495,7 +495,9 @@
     </div>
   </footer>
 
-  <script src="./home.js?v=4" defer></script>
+  <!-- Lenis must execute before home.js — deferred scripts run in document order -->
+  <script defer src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script src="./home.js?v=5" defer></script>
   <script src="./cards.js?v=3" defer></script>
 </body>
 </html>
