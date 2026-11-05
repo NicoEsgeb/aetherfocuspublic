@@ -4,7 +4,7 @@
     "client_id": "massa_camus_abogados",
     "target_os": "windows",
     "channel": "staging",
-    "generated_at": "2026-09-28T12:59:26+00:00",
+    "generated_at": "2026-11-05T18:31:58+00:00",
     "dev_build": false,
     "core": {
       "version": "productization-e0a3a2fb4ea8",
@@ -16,7 +16,7 @@
       "size_bytes": 209456529
     },
     "bot_pack": {
-      "version": "a15227525c1c-dirty-3de5b3716ffc",
+      "version": "a15227525c1c-dirty-fdaf8d4ac323",
       "bots": [
         "N03_buscar-tribunal-extension",
         "clean01_ingreso_demandas",
@@ -30,10 +30,10 @@
         "rpa01_new_ingreso-escritos",
         "rpa06_new"
       ],
-      "artifact": "botpack-windows-massa_camus_abogados-a15227525c1c-dirty-3de5b3716ffc.zip",
-      "sha256": "5409daab0f8d11bedad971d43bc021f860dfbbe0980ee965287ca0095386fe58",
-      "size_bytes": 1395494
+      "artifact": "botpack-windows-massa_camus_abogados-a15227525c1c-dirty-fdaf8d4ac323.zip",
+      "sha256": "72c483b99536205344226a5c9370223121e2d3e7b13a765bb6cc63b9c3af7500",
+      "size_bytes": 1395466
     }
   },
-  "signature": "eSPEMKekM1lxEh0ewlHbhRDPfbrgCtsY/4L8pilH3ajuIQG+nE9yDnjvDJVGRYR4+mcPG3im37FwmgLEouXGAA=="
+  "signature": "twdsxryaK/WlpWrtpgqXQSZPghg2114xycckdy4PsBf+upgCQbmdhMlNy1oYGHrwzv4ynQW49DbzvGoFmlhpBA=="
 }
